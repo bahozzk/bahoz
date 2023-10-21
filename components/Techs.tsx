@@ -14,7 +14,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
 
   return (
     <div className='my-20 md:px-8 w-full flex flex-col items-center'>
-      <h2 className='font-bold text-lg uppercase'>Technologies</h2>
+      <h2 className='font-bold text-lg uppercase'>Teknolojiler</h2>
       <div className='flex flex-row flex-wrap items-center justify-center max-w-3xl'>
         {techs.map((data, index) => <a target={'_blank'} rel="noreferrer" href={data.href} className={`m-6 flex flex-row items-center`} key={`techs${index}`}>
           {data.icon}
