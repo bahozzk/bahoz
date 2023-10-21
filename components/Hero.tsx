@@ -7,7 +7,7 @@ import style from '../styles/home.module.css';
 
 const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
     const subtitles: string[] = [
-        "Jr. Full-Stack Web Developer",
+        "Helper At ConCity",
         //"And other things..",
     ];
 
