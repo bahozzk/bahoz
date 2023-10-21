@@ -45,7 +45,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
                     {content}
                     <div className='flex flex-row flex-wrap items-center justify-center'>
                         {links.map((data, index) => <a className='m-3' rel="noreferrer" target={'_blank'} href={data.href} key={`link${index}`}>
-                            <FontAwesomeIcon className='text-white/90 hover:text-purple-400/90 duration-150' size={'2x'} icon={data.icon} />
+                            <FontAwesomeIcon className='text-white/90 hover:text-orange-400/90 duration-150' size={'2x'} icon={data.icon} />
                         </a>)}
                     </div>
                 </div>
