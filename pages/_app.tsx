@@ -28,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
       <title>BahozzK</title>
     </Head>
     <Component {...pageProps} />
+    <Analytics />
   </>
 };
 
