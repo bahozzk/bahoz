@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-svg-core/styles.css'
 
 import { config } from '@fortawesome/fontawesome-svg-core'
 import type { AppProps } from 'next/app';
-import { Analytics} from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/react';
 import type { PageProps } from '../types';
 import Head from 'next/head';
 
