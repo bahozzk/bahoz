@@ -39,7 +39,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
 
     return (
         <div id="aboutme" className='my-4 md:px-8 w-full mb-20 flex flex-col items-center'>
-            <h2 className='font-bold text-lg uppercase'>Hakkımda</h2>
+            <h2 className='font-bold text-lg uppercase'>About Me</h2>
             <div className='flex flex-row flex-wrap items-center justify-center max-w-4xl'>
                 <div className='block'>
                     {content}
