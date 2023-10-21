@@ -34,7 +34,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
         <br></br>
         voleybol oynamayı çok seviyorum.
         <br></br>
-        Şu anda <a className='text-orange-400/90' target={'_blank'} href='https://con.city/' rel="noreferrer">ConCity</a>de Helper pozisyonunda çalışıyorum!
+        Şu anda <a className='text-orange-400/90' target={'_blank'} href='https://con.city/' rel="noreferrer">Con</a><a className='text-yellow-400/90' target={'_blank'} href='https://con.city/' rel="noreferrer">City</a>de Helper pozisyonunda çalışıyorum!
     </p>
 
     return (
