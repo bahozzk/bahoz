@@ -14,7 +14,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
             href: '/instagram'
         },
         {
-            icon: fx-twitter,
+            icon: fax-twitter,
             href: '/x'
         },
         {
