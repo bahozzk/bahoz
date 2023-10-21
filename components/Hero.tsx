@@ -21,7 +21,7 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                 </div>
                 <div className='block m-10 lg:m-2'>
                     <div className='flex flex-col items-center justify-center'>
-                        <h1 className='text-6xl md:text-5xl font-semibold my-3 text-center uppercase tracking-wide'>Mustafa Can</h1>
+                        <h1 className='text-6xl md:text-5xl font-semibold my-3 text-center uppercase tracking-wide'>Bahoz</h1>
                         <div className='block'>
                             <p onAnimationEnd={async (e) => {
                                 const target = (e.target as Element);
