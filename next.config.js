@@ -6,32 +6,27 @@ const nextConfig = {
     return [
       {
         source: '/discord',
-        destination: 'https://discord.com/user/537687740418883615',
+        destination: 'https://discord.com/user/673849208154882078',
         permanent: true,
       },
       {
         source: '/github',
-        destination: 'https://github.com/MustqfaCan',
+        destination: 'https://github.com/bahozzk',
         permanent: true,
       },
       {
         source: '/instagram',
-        destination: 'https://instagram.com/mustafacangoktas',
+        destination: 'https://instagram.com/bahozzx',
         permanent: true,
       },
       {
-        source: '/twitter',
-        destination: 'https://twitter.com/mustqfacan',
+        source: '/x',
+        destination: 'https://x.com/bahozzk',
         permanent: true,
       },
       {
         source: '/youtube',
-        destination: 'https://www.youtube.com/channel/UCK7S8aZBQjUh3anaEOYHy4A',
-        permanent: true,
-      },
-      {
-        source: '/caneria',
-        destination: 'https://caneria.net',
+        destination: 'https://www.youtube.com/@BahozK',
         permanent: true,
       }
     ]
