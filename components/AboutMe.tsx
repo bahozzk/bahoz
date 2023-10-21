@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faTwitter, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faX-twitter, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
