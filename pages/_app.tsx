@@ -22,9 +22,9 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
       <meta name="author" content="Mustafa Can" />
       <meta name="theme-color" content="black" />
 
-      <link rel="shortcut icon" href="https://mc-heads.net/head/MustqfaCan/400"></link>
-      <link rel="apple-touch-icon" href="https://mc-heads.net/head/MustqfaCan/400" sizes="512x512"></link>
-      <title>Mustafa Can</title>
+      <link rel="shortcut icon" href="https://mc-heads.net/head/BahozzK/400"></link>
+      <link rel="apple-touch-icon" href="https://mc-heads.net/head/BahozzK/400" sizes="512x512"></link>
+      <title>BahozzK</title>
     </Head>
     <Component {...pageProps} />
   </>
