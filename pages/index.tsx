@@ -16,7 +16,6 @@ const Home: NextPage = (pageProps: PageProps): JSX.Element => {
       </div>
       <div className='absolute w-full'>
 
-        <Menu />
         <Hero />
         <AboutMe />
         <Organizations />
