@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNodeJs, faSquareJs, faNpm, faReact, faVuejs, faGitAlt, faUbuntu } from '@fortawesome/free-brands-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
+import { spotifyEmbedCodeObject } from './spotifyEmbedCode';
 
 const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
   const techs = [
@@ -10,10 +11,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
       icon: <FontAwesomeIcon color={'#efd81d'} size="6x" icon={faSquareJs} />,
       href: 'https://www.javascript.com/'
     }
-  ];
-  
-  // Spotify embed kodu
-  const spotifyEmbedCode = '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3a8mVeic6p5DdMSbsQXWIx?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+  ]
 
   return (
     <div className='my-20 md:px-8 w-full flex flex-col items-center'>
@@ -22,11 +20,9 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         {techs.map((data, index) => <a target={'_blank'} rel="noreferrer" href={data.href} className={`m-6 flex flex-row items-center`} key={`techs${index}`}>
           {data.icon}
         </a>)}
-      </div>
 
-      <iframe style="border-radius:12px" src={spotifyEmbedCode} width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src={spotifyEmbedCodeObject.url} width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      </div>
     </div>
   );
 };
-
-export default Techs;
