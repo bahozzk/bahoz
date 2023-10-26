@@ -1,11 +1,31 @@
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
-import Hero from '../components/Hero';
-import Organizations from '../components/Organizations';
-import Techs from '../components/Techs';
-import AboutMe from '../components/AboutMe';
-import Footer from '../components/Footer';
+import React from "react";
+import DropdownMenu from "../components/DropdownMenu";
+import Hero from "../components/Hero";
+import Organizations from "../components/Organizations";
+import Techs from "../components/Techs";
+import AboutMe from "../components/AboutMe";
+import Footer from "../components/Footer";
+
+const items: Array<{
+  label: string;
+  onClick: () => void;
+}> = [
+  {
+    label: "Anasayfa",
+    onClick: () => window.location.href = "/",
+  },
+  {
+    label: "Hakkımızda",
+    onClick: () => window.location.href = "/hakkimizda",
+  },
+  {
+    label: "İletişim",
+    onClick: () => window.location.href = "/iletisim",
+  },
+];
 
 const Home: NextPage = (pageProps: PageProps): JSX.Element => {
   return (
@@ -16,11 +36,11 @@ const Home: NextPage = (pageProps: PageProps): JSX.Element => {
       </div>
       <div className='absolute w-full'>
 
-        <Menu />
+        <DropdownMenu items={items} />
         <Hero />
-        <AboutMe />
         <Organizations />
         <Techs />
+        <AboutMe />
         <Footer />
         
       </div>
