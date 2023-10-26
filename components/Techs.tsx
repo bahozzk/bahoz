@@ -6,7 +6,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
 
   return (
 <div className='my-20 md:px-8 w-full flex flex-col items-center'>
-  <h2 className='font-bold text-lg uppercase'>Teknolojiler</h2>
+  <h2 className='font-bold text-lg uppercase'>Favori Şarkım - Enercii</h2>
   <div className='flex flex-row flex-wrap items-center justify-center max-w-3xl'>
     <div className="react-player-wrapper">
       <ReactPlayer
