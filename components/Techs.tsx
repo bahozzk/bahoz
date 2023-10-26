@@ -30,7 +30,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         ))}
 
         <ReactPlayer
-          url="https://cdn.discordapp.com/attachments/1140520610141847552/1167117259681046548/enerci.mp3"
+          url="https://media.discordapp.net/attachments/1140520610141847552/1167127062516080776/Dilan_Polat_-_Enercii720P_HD.mp4"
           type="audio"
           controls={true}
         />
