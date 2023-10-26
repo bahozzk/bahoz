@@ -1,7 +1,6 @@
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
-import Menu from '../components/Menu';
 import Hero from '../components/Hero';
 import Organizations from '../components/Organizations';
 import Techs from '../components/Techs';
