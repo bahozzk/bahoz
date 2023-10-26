@@ -1,6 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faNodeJs, faSquareJs, faNpm, faReact, faVuejs, faGitAlt, faUbuntu } from '@fortawesome/free-brands-svg-icons';
-import ReactPlayer from 'react-player';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
@@ -24,6 +23,8 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
           {data.icon}
         </a>)}
       </div>
+
+      <iframe style="border-radius:12px" src={spotifyEmbedCode} width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     </div>
   );
 };
