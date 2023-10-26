@@ -30,7 +30,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         ))}
 
         <ReactPlayer
-          url="https://youtu.be/fQBqaga9ElU?si=bukykJKMv05_5Hwp"
+          url="https://cdn.discordapp.com/attachments/1140520610141847552/1167117259681046548/enerci.mp3"
           type="audio"
           controls={true}
         />
