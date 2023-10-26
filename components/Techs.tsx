@@ -1,5 +1,4 @@
 import ReactPlayer from 'react-player';
-import "styles/globals.css";
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
