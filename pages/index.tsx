@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
+import Menu from '../components/Menu';
 import Hero from '../components/Hero';
 import Organizations from '../components/Organizations';
 import Techs from '../components/Techs';
@@ -15,7 +16,8 @@ const Home: NextPage = (pageProps: PageProps): JSX.Element => {
   absolute bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center bg-fixed w-full h-screen">
       </div>
       <div className='absolute w-full'>
-        
+
+        <Menu />
         <Hero />
         <AboutMe />
         <Organizations />
