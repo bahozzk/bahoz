@@ -30,7 +30,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         ))}
 
         <ReactPlayer
-          src="/assets/images/enerci.mp3"
+          src="/public/assets/images/enerci.mp3"
           type="audio"
           controls={true}
         />
