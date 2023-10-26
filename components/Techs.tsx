@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faNodeJs, faSquareJs, faNpm, faReact, faVuejs, faGitAlt, faUbuntu } from '@fortawesome/free-brands-svg-icons';
 import ReactPlayer from 'react-player';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
@@ -30,7 +28,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         ))}
 
         <ReactPlayer
-          src="/public/assets/images/enerci.mp3"
+          url="/public/assets/images/enerci.mp3"
           type="audio"
           controls={true}
         />
