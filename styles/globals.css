@@ -29,6 +29,10 @@ body * {
   box-sizing: border-box;
 }
 
+.react-player-wrapper {
+  border-radius: 10px;
+}
+
 img {
   pointer-events: none;
 }
