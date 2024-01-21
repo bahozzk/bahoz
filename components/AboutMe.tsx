@@ -28,7 +28,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
     ];
 
     const content = <p className='text-center my-4 text-lg text-white/80'>
-        Merhaba! Ben Bahoz, 14 yaşında lise öğrencisiyim.
+        Merhaba! Ben Bahoz, 15 yaşında lise öğrencisiyim.
         <br></br>
         Yazılıma ilgiliyim fakat hiçbir dili bilmiyorum.
         <br></br>
