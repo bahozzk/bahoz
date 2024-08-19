@@ -9,13 +9,13 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             title: 'Okuyor',
             href: '',
             position: '11. Sınıf',
-            icon: 'https://cdn.discordapp.com/attachments/1140520610141847552/1275116590446149694/mortarboard.png'
+            icon: 'https://cdn.discordapp.com/attachments/1140520610141847552/1275116590446149694/mortarboard.png?ex=66c4b85d&is=66c366dd&hm=776edebadda3bb8229efcf31a6a8c92fbbcc43720bbbdce07dd66dfe418eb70f&'
         }
     ];
 
     return (
         <div className='my-20 md:px-8 w-full flex flex-col items-center'>
-            <h2 className='font-bold text-lg uppercase'>Organizasyonlar</h2>
+            <h2 className='font-bold text-lg uppercase'>Meslek</h2>
             <div className='flex flex-row flex-wrap items-center justify-center max-w-3xl'>
                 {organizations.map((data, index) => <div className='duration-150 hover:shadow-[0_0px_30px_0px_#fcb400] hover:shadow-[0_0px_30px_0px_#ff4579] m-4 bg-gray-500/10 px-4 py-2 rounded-lg flex flex-row justify-between' key={`techs${index}`}>
                     <a target={'_blank'} rel="noreferrer" href={data.href}
