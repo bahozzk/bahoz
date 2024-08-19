@@ -30,7 +30,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
     const content = <p className='text-center my-4 text-lg text-white/80'>
         Merhaba! Ben Bahoz,
         <br></br>
-        Yazılıma ilgiliyim fakat hiçbir dili bilmiyorum 🙃
+        Yazılıma ilgiliyim fakat hiçbir dili bilmiyorum
     </p>;
 
     return (
