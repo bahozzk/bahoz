@@ -9,7 +9,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             title: 'Okuyor',
             href: '',
             position: '11. Sınıf',
-            icon: ''
+            icon: 'https://cdn.discordapp.com/attachments/1140520610141847552/1275116590446149694/mortarboard.png'
         }
     ];
 
