@@ -6,10 +6,10 @@ import type { PageProps } from '../types';
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
         {
-            title: 'ConCity',
-            href: 'https://con.city/',
-            position: 'Helper',
-            icon: 'https://media.discordapp.net/attachments/529376209977606144/1165338481753596004/icon_02b3af8233.png?ex=65467d08&is=65340808&hm=78acf0121c41242ab473d5050e0ed04636a039f3e40608414e6ed63ebf71077f&'
+            title: 'Okuyor',
+            href: '',
+            position: '11. Sınıf',
+            icon: ''
         }
     ];
 
