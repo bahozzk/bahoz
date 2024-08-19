@@ -28,13 +28,9 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
     ];
 
     const content = <p className='text-center my-4 text-lg text-white/80'>
-        Merhaba! Ben Bahoz, 15 yaşında lise öğrencisiyim.
+        Merhaba! Ben Bahoz,
         <br></br>
-        Yazılıma ilgiliyim fakat hiçbir dili bilmiyorum.
-        <br></br>
-        Voleybol oynamayı çok seviyorum.
-        <br></br>
-        Şu anda <a className='text-yellow-400/90' target={'_blank'} href='https://con.city/' rel="noreferrer">Con</a><a className='text-rose-400/90' target={'_blank'} href='https://con.city/' rel="noreferrer">City</a> de Helper pozisyonunda çalışıyorum!
+        Yazılıma ilgiliyim fakat hiçbir dili bilmiyorum 🙃
     </p>;
 
     return (
