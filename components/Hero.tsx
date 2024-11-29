@@ -6,34 +6,28 @@ import { useState, useEffect } from 'react';
 import style from '../styles/home.module.css';
 
 const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
-    const [discordStatus, setDiscordStatus] = useState<string | null>(null);
+    const [userData, setUserData] = useState<any>(null);
+    const [subTitleIndex, setSubTitleIndex] = useState(0);
 
-    // Discord durumunu çek
     useEffect(() => {
-        const fetchDiscordStatus = async () => {
+        const fetchUserData = async () => {
             try {
                 const response = await fetch('/api/discord');
                 const data = await response.json();
-                if (data.activities && data.activities.length > 0) {
-                    const playingGame = data.activities.find((activity: any) => activity.type === 0); // Oynuyor kısmını bul
-                    setDiscordStatus(playingGame ? `Oynuyor: ${playingGame.name}` : "Şu anda bir şey oynamıyor.");
-                } else {
-                    setDiscordStatus("Şu anda bir şey yapmıyor.");
-                }
+                setUserData(data);
             } catch (error) {
-                console.error("Discord durumu alınamadı:", error);
-                setDiscordStatus("Durum alınamadı.");
+                console.error('Error fetching Discord user data:', error);
             }
         };
 
-        fetchDiscordStatus();
+        fetchUserData();
     }, []);
 
     return (
         <div className="w-full h-screen flex flex-col justify-center items-center">
             <div className="flex flex-row lg:flex-col justify-center items-center my-8 py-6">
                 <div className="block m-10 lg:m-2">
-                    <img className="block h-72 w-72" src="/assets/images/avatar.png" />
+                    <img className="block h-72 w-72" src="/assets/images/avatar.png" alt="Avatar" />
                 </div>
                 <div className="block m-10 lg:m-2">
                     <div className="flex flex-col items-center justify-center">
@@ -41,10 +35,31 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                             Bahoz
                         </h1>
                         <div className="block">
-                            {/* Discord durumunu burada göster */}
-                            <p className="text-xl md:text-lg my-3 text-center">
-                                {discordStatus || "Yükleniyor..."}
-                            </p>
+                            {userData ? (
+                                <p
+                                    onAnimationEnd={async (e) => {
+                                        const target = e.target as Element;
+                                        if (target.classList.contains(style.writer)) {
+                                            await new Promise<void>((resolve) => setTimeout(() => resolve(), 1000));
+                                            target.classList.remove(style.writer);
+                                            if (userData.username) {
+                                                target.classList.add(style.deleter);
+                                            }
+                                        } else {
+                                            let nextIndex = subTitleIndex + 1;
+                                            if (!userData.username) nextIndex = 0;
+                                            target.classList.remove(style.deleter);
+                                            target.classList.add(style.writer);
+                                            setSubTitleIndex(nextIndex);
+                                        }
+                                    }}
+                                    className={`text-xl md:text-lg my-3 text-center ${style['write-animation']} ${style.writer}`}
+                                >
+                                    {userData.username} {/* Buraya Discord kullanıcı adı eklenecek */}
+                                </p>
+                            ) : (
+                                <p className="text-xl md:text-lg my-3 text-center">Loading...</p>
+                            )}
                         </div>
                     </div>
                     <div className="animate-bounce h-10 m-7 flex flex-row items-center justify-center cursor-pointer">
