@@ -15,7 +15,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
 
     return (
         <div className='my-20 md:px-8 w-full flex flex-col items-center'>
-            <h2 className='font-bold text-lg uppercase'>Meslek</h2>
+            <h2 className='font-bold text-lg uppercase'>What am I doing?</h2>
             <div className='flex flex-row flex-wrap items-center justify-center max-w-3xl'>
                 {organizations.map((data, index) => <div className='duration-150 hover:shadow-[0_0px_30px_0px_#fcb400] hover:shadow-[0_0px_30px_0px_#ff4579] m-4 bg-gray-500/10 px-4 py-2 rounded-lg flex flex-row justify-between' key={`techs${index}`}>
                     <a target={'_blank'} rel="noreferrer" href={data.href}
