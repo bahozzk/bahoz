@@ -6,21 +6,24 @@ import { useState, useEffect } from 'react';
 import style from '../styles/home.module.css';
 
 const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
-    const [userData, setUserData] = useState<any>(null);
+    const [userActivity, setUserActivity] = useState<string>("Loading...");
     const [subTitleIndex, setSubTitleIndex] = useState(0);
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchUserActivity = async () => {
             try {
                 const response = await fetch('/api/discord');
                 const data = await response.json();
-                setUserData(data);
+                if (data.activity) {
+                    setUserActivity(`Currently ${data.activity}`); // Kullanıcının etkinliğini göster
+                }
             } catch (error) {
-                console.error('Error fetching Discord user data:', error);
+                console.error('Error fetching Discord user activity:', error);
+                setUserActivity("Failed to fetch activity");
             }
         };
 
-        fetchUserData();
+        fetchUserActivity();
     }, []);
 
     return (
@@ -35,31 +38,27 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                             Bahoz
                         </h1>
                         <div className="block">
-                            {userData ? (
-                                <p
-                                    onAnimationEnd={async (e) => {
-                                        const target = e.target as Element;
-                                        if (target.classList.contains(style.writer)) {
-                                            await new Promise<void>((resolve) => setTimeout(() => resolve(), 1000));
-                                            target.classList.remove(style.writer);
-                                            if (userData.username) {
-                                                target.classList.add(style.deleter);
-                                            }
-                                        } else {
-                                            let nextIndex = subTitleIndex + 1;
-                                            if (!userData.username) nextIndex = 0;
-                                            target.classList.remove(style.deleter);
-                                            target.classList.add(style.writer);
-                                            setSubTitleIndex(nextIndex);
+                            <p
+                                onAnimationEnd={async (e) => {
+                                    const target = e.target as Element;
+                                    if (target.classList.contains(style.writer)) {
+                                        await new Promise<void>((resolve) => setTimeout(() => resolve(), 1000));
+                                        target.classList.remove(style.writer);
+                                        if (userActivity) {
+                                            target.classList.add(style.deleter);
                                         }
-                                    }}
-                                    className={`text-xl md:text-lg my-3 text-center ${style['write-animation']} ${style.writer}`}
-                                >
-                                    {userData.username} {/* Buraya Discord kullanıcı adı eklenecek */}
-                                </p>
-                            ) : (
-                                <p className="text-xl md:text-lg my-3 text-center">Loading...</p>
-                            )}
+                                    } else {
+                                        let nextIndex = subTitleIndex + 1;
+                                        if (!userActivity) nextIndex = 0;
+                                        target.classList.remove(style.deleter);
+                                        target.classList.add(style.writer);
+                                        setSubTitleIndex(nextIndex);
+                                    }
+                                }}
+                                className={`text-xl md:text-lg my-3 text-center ${style['write-animation']} ${style.writer}`}
+                            >
+                                {userActivity} {/* Burada kullanıcı etkinliği görünecek */}
+                            </p>
                         </div>
                     </div>
                     <div className="animate-bounce h-10 m-7 flex flex-row items-center justify-center cursor-pointer">
