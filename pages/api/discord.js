@@ -1,5 +1,5 @@
 export default async function handler(req, res) {
-    const discordUserId = '438230669064405002'; // Buraya Discord User ID'nizi yazın
+    const discordUserId = '702225440227459234'; // Buraya Discord User ID'nizi yazın
     const lanyardUrl = `https://api.lanyard.rest/v1/users/${discordUserId}`;
 
     try {
