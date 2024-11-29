@@ -40,3 +40,22 @@ const Hero: NextPage = (): JSX.Element => {
                         <div className="block">
                             {/* Etkinlik bilgisi burada sabit olarak gösterilecek */}
                             <p className="text-xl md:text-lg my-3 text-center">{userActivity}</p>
+                        </div>
+                    </div>
+                    <div className="animate-bounce h-10 m-7 flex flex-row items-center justify-center cursor-pointer">
+                        <span
+                            onClick={() => {
+                                document.getElementById("aboutme")?.scrollIntoView();
+                            }}
+                            className="text-lg md:text-base"
+                        >
+                            More... <FontAwesomeIcon icon={faCircleDown} />
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Hero;
