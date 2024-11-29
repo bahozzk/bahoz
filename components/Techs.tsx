@@ -1,21 +1,27 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faComment, faVolleyballBall } from '@fortawesome/free-solid-svg-icons'; // İkonlar
+import { faVolleyballBall } from '@fortawesome/free-solid-svg-icons'; // Voleybol ikonu
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
 const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
   const techs = [
     {
-      icon: <FontAwesomeIcon color={'#00d1f7'} size="6x" icon={faComment} />,
+      // İngiltere bayrağını görsel olarak ekliyoruz
+      icon: (
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" 
+             alt="UK Flag" 
+             className="w-24 h-24" />
+      ),
       href: '',
-      description: 'Fluent in English, proficient in conversation and writing.'
+      description: 'B1 English'
     },
     {
+      // Voleybol ikonu
       icon: <FontAwesomeIcon color={'#ffcc00'} size="6x" icon={faVolleyballBall} />,
-      href: '',
-      description: 'Able to play volleyball at an amateur level.'
+      href: 'https://grabagame.com/volleyball-skill-levels/',
+      description: 'B+ Volleyball'
     },
-    // Buraya daha fazla nitelik ekleyebilirsiniz
+    // Daha fazla nitelik ekleyebilirsiniz
   ];
 
   return (
