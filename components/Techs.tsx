@@ -8,7 +8,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
     {
       // İngiltere bayrağını görsel olarak ekliyoruz
       icon: (
-        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_Kingdom.svg" 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png" 
              alt="UK Flag" 
              className="w-24 h-24" />
       ),
