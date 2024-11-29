@@ -28,9 +28,9 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
     ];
 
     const content = <p className='text-center my-4 text-lg text-white/80'>
-        Hiya! I'm Bahoz,
+        Hiya! Im Bahoz,
         <br></br>
-        I am interested in programming but I don't know any languages 🙃
+        I am interested in programming but I dont know any languages 🙃
     </p>;
 
     return (
