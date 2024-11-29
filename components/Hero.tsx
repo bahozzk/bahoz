@@ -44,7 +44,7 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                     <div className='animate-bounce h-10 m-7 flex flex-row items-center justify-center cursor-pointer'>
                         <span onClick={() => {
                             document.getElementById("aboutme")?.scrollIntoView();
-                        }} className='text-lg md:text-base'>Daha Fazlası.. <FontAwesomeIcon icon={faCircleDown} /></span>
+                        }} className='text-lg md:text-base'>More... <FontAwesomeIcon icon={faCircleDown} /></span>
                     </div>
                 </div>
             </div>
