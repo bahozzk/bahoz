@@ -8,13 +8,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
     {
       icon: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kdom_%283-5%29.svg.png"
           alt="UK Flag"
-          className="w-16 h-16"
+          className="w-8 h-8"
         />
       ),
       description: 'B1 English',
-      hoverColors: 'from-blue-500 via-red-500 to-white',
+      hoverColors: 'from-blue-500 via-white to-red-500',
       isUKFlag: true,
     },
     {
@@ -22,7 +22,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1920px-Flag_of_France.svg.png"
           alt="France Flag"
-          className="w-16 h-16"
+          className="w-8 h-8"
         />
       ),
       description: 'A1 French',
@@ -31,8 +31,8 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
     },
     {
       icon: (
-        <div className="w-16 h-16 flex items-center justify-center">
-          <FontAwesomeIcon color="#ffcc00" size="3x" icon={faVolleyballBall} />
+        <div className="w-8 h-8 flex items-center justify-center">
+          <FontAwesomeIcon color="#ffcc00" size="2x" icon={faVolleyballBall} />
         </div>
       ),
       description: 'B+ Volleyball',
@@ -51,13 +51,11 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
           <div key={`qual${index}`} className="relative group">
             {/* Hover Glow Effect */}
             <div
-              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter ${
-                data.isUKFlag ? 'bg-[url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png)]' : ''
-              }`}
+              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter`}
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-64 h-56 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-56 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
               <p className="text-center text-white mt-4 text-lg font-medium">
                 {data.description}
