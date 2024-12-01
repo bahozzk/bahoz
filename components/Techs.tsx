@@ -26,7 +26,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         />
       ),
       description: 'A1 French',
-      hoverColors: 'from-blue-500 via-white to-red-500',
+      hoverColors: 'from-blue-700 via-white to-red-500',  // Mavi tonunu koyulaştırdım
       isUKFlag: false,
     },
     {
@@ -52,12 +52,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
             {/* Hover Glow Effect */}
             <div
               className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter`}
+              style={{ width: 'calc(100% + 16px)', height: 'calc(100% + 16px)' }} // Efekti kutu boyutuyla uyumlu hale getirdim
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-48 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-40 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
-              <p className="text-center text-white mt-4 text-lg font-medium">
+              <p className="text-center text-white mt-4 text-lg font-bold">
                 {data.description}
               </p>
             </div>
