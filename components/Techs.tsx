@@ -10,7 +10,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
           alt="UK Flag"
-          className="w-8 h-8"
+          className="w-[120px] h-[80px]"  // Bayrak boyutlarına uyumlu
         />
       ),
       description: 'B1 English',
@@ -22,11 +22,11 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1920px-Flag_of_France.svg.png"
           alt="France Flag"
-          className="w-8 h-8"
+          className="w-[120px] h-[80px]"  // Bayrak boyutlarına uyumlu
         />
       ),
       description: 'A1 French',
-      hoverColors: 'from-blue-700 via-white to-red-500',  // Mavi tonunu koyulaştırdım
+      hoverColors: 'from-blue-700 via-white to-red-500',  // Koyu mavi tonu
       isUKFlag: false,
     },
     {
@@ -52,11 +52,11 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
             {/* Hover Glow Effect */}
             <div
               className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter`}
-              style={{ width: 'calc(100% + 16px)', height: 'calc(100% + 16px)' }} // Efekti kutu boyutuyla uyumlu hale getirdim
+              style={{ width: 'calc(100% + 10px)', height: 'calc(100% + 10px)' }} // Hover efekti kutu boyutuyla uyumlu
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-40 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-36 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
               <p className="text-center text-white mt-4 text-lg font-bold">
                 {data.description}
