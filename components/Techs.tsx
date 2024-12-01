@@ -10,31 +10,31 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
           alt="UK Flag"
-          className="w-16 h-16"
+          className="w-20 h-20"
         />
       ),
       description: 'B1 English',
-      hoverColors: 'bg-gradient-to-r from-blue-500 via-red-500 to-white',
+      hoverColors: 'hover:bg-gradient-to-r hover:from-blue-500 hover:via-red-500 hover:to-white',
     },
     {
       icon: (
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1920px-Flag_of_France.svg.png"
           alt="France Flag"
-          className="w-16 h-16"
+          className="w-20 h-20"
         />
       ),
       description: 'A1 French',
-      hoverColors: 'bg-gradient-to-r from-blue-500 via-white to-red-500',
+      hoverColors: 'hover:bg-gradient-to-r hover:from-blue-500 hover:via-white hover:to-red-500',
     },
     {
       icon: (
-        <div className="w-16 h-16 flex items-center justify-center">
+        <div className="w-20 h-20 flex items-center justify-center">
           <FontAwesomeIcon color="#ffcc00" size="3x" icon={faVolleyballBall} />
         </div>
       ),
       description: 'B+ Volleyball',
-      hoverColors: 'bg-yellow-500',
+      hoverColors: 'hover:bg-yellow-500',
     },
   ];
 
@@ -47,11 +47,9 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         {techs.map((data, index) => (
           <div
             key={`techs${index}`}
-            className={`group relative m-4 w-40 h-48 p-4 bg-black rounded-lg shadow-lg overflow-hidden flex flex-col items-center justify-between transition-all duration-300 hover:${data.hoverColors}`}
+            className={`relative w-40 h-48 p-4 bg-black rounded-lg shadow-md flex flex-col items-center justify-between transition-all duration-300 ${data.hoverColors} group`}
           >
-            <div
-              className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${data.hoverColors} z-0`}
-            ></div>
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 z-0"></div>
             <div className="z-10">{data.icon}</div>
             <p className="z-10 text-center text-white mt-4 text-lg font-medium">
               {data.description}
