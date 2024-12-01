@@ -10,7 +10,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
           alt="UK Flag"
-          className="w-20 h-20"
+          className="w-16 h-16"
         />
       ),
       description: 'B1 English',
@@ -22,7 +22,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         <img
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/1920px-Flag_of_France.svg.png"
           alt="France Flag"
-          className="w-20 h-20"
+          className="w-16 h-16"
         />
       ),
       description: 'A1 French',
@@ -31,7 +31,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
     },
     {
       icon: (
-        <div className="w-20 h-20 flex items-center justify-center">
+        <div className="w-16 h-16 flex items-center justify-center">
           <FontAwesomeIcon color="#ffcc00" size="3x" icon={faVolleyballBall} />
         </div>
       ),
@@ -57,7 +57,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-72 h-64 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-64 h-56 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
               <p className="text-center text-white mt-4 text-lg font-medium">
                 {data.description}
