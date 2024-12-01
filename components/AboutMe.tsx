@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGithub, faInstagram, faTwitter, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { faGithub, faInstagram, faX, faDiscord, faYoutube } from '@fortawesome/free-brands-svg-icons'; // faTwitter yerine faX ekledik
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
@@ -14,7 +14,7 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
             href: '/instagram'
         },
         {
-            icon: faTwitter,
+            icon: faX, // Twitter yerine X logosu kullanıldı
             href: '/x'
         },
         {
