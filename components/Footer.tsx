@@ -21,8 +21,8 @@ const Footer: NextPage = (pageProps: PageProps): JSX.Element => {
             </div>
             <div className='border-t border-white/10 border-solid'>
                 <div className='md:flex-col-reverse flex flex-row items-center md:items-end justify-between px-[7%] py-6 md:py-4'>
-                    <p>Designed By <a className='text-purple-400/90' target={'_blank'} href='/discord'>Mustafa Can</a></p>
-                    <p className='md:mb-1'><a className='hover:text-white/70 duration-100' target={'_blank'} href='https://github.com/MustqfaCan/personal-website' rel="noreferrer">View on Github</a></p>
+                    <p>Designed By <a className='text-purple-400/90 underline' target={'_blank'} href='https://github.com/MustqfaCan'>Mustafa Can</a></p>
+                    <p className='md:mb-1'><a className='hover:text-white/70 duration-100' target={'_blank'} href='https://github.com/bahozzk/bahoz' rel="noreferrer">View on Github</a></p>
                 </div>
             </div>
         </footer>
