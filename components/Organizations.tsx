@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
+import Image from 'next/image'; // Next.js Image bileşenini import ettik
 
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
@@ -22,19 +23,4 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                         className='duration-150 hover:shadow-[0_0px_30px_0px_#fcb400] hover:shadow-[0_0px_30px_0px_#ffd700] m-4 bg-gray-500/10 px-4 py-2 rounded-lg flex flex-row justify-between' 
                         key={`techs${index}`}
                     >
-                        <a target={'_blank'} rel="noreferrer" href={data.href}
-                            className={`flex flex-row items-center justify-center py-1 w-[300px]`}>
-                            <img className='mr-2' alt={`Organization ${index} - Icon`} width="120" height="120" src={data.icon} />
-                            <div className='mx-2 text-center'>
-                                <div className='font-semibold text-lg'>{data.title}</div>
-                                <div className='text-white/50 text-sm'>{data.position}</div>
-                            </div>
-                        </a>
-                    </div>
-                )}
-            </div>
-        </div>
-    );
-};
-
-export default Organizations;
+                        <a target={'_blank'} rel
