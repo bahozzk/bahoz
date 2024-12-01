@@ -48,7 +48,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
           <div key={`qual${index}`} className="relative group">
             {/* Hover Glow Effect */}
             <div
-              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-300`}
+              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter`}
             ></div>
 
             {/* Inner Black Box */}
