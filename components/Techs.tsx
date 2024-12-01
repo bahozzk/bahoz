@@ -26,13 +26,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
         />
       ),
       description: 'A1 French',
-      hoverColors: 'from-blue-700 via-white to-red-500',  // Koyu mavi tonu
+      hoverColors: 'from-blue-800 via-white to-red-500',  // Mavi tonunu daha koyu yaptım
       isUKFlag: false,
     },
     {
       icon: (
-        <div className="w-8 h-8 flex items-center justify-center">
-          <FontAwesomeIcon color="#ffcc00" size="2x" icon={faVolleyballBall} />
+        <div className="w-12 h-12 flex items-center justify-center"> {/* Voleybol topunun boyutunu büyüttüm */}
+          <FontAwesomeIcon color="#ffcc00" size="3x" icon={faVolleyballBall} />
         </div>
       ),
       description: 'B+ Volleyball',
