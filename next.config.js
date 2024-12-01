@@ -10,6 +10,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/spotify',
+        destination: 'https://open.spotify.com/user/31qumprympw55vvhea4gwud5htwa?si=_Cy8oIHpSleUar29fGUCEw',
+        permanent: true,
+      },
+      {
         source: '/github',
         destination: 'https://github.com/bahozzk',
         permanent: true,
