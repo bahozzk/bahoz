@@ -20,7 +20,4 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             <div className='flex flex-row flex-wrap items-center justify-center max-w-3xl'>
                 {organizations.map((data, index) => (
                     <div 
-                        className='duration-150 hover:shadow-[0_0px_30px_0px_#fcb400] hover:shadow-[0_0px_30px_0px_#ffd700] m-4 bg-gray-500/10 px-4 py-2 rounded-lg flex flex-row justify-between' 
-                        key={`techs${index}`}
-                    >
-                        <a target={'_blank'} rel
+                        className='duration-150 hover:shadow-[0_0px_30px_0px_#fcb400]
