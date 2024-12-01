@@ -32,10 +32,10 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
     ];
 
     const content = <p className='text-center my-4 text-lg text-white/80'>
-        Hiya! I'm Bahoz,
-        <br />
-        I am interested in programming but I don't know any languages 🙃
-    </p>;
+    Hiya! I&apos;m Bahoz,
+    <br />
+    I am interested in programming but I don&apos;t know any languages 🙃
+</p>;
 
     return (
         <div id="aboutme" className='my-4 md:px-8 w-full mb-20 flex flex-col items-center'>
