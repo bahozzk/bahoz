@@ -7,7 +7,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
         {
             title: 'Student',
-            href: '',
+            href: 'https://mehmetraufanadolulisesi.meb.k12.tr/tema/iletisim.php',
             position: '11th Grade',
             icon: 'https://media.discordapp.net/attachments/818564854436462602/1312122008707793030/1732904656553.png?ex=674b5858&is=674a06d8&hm=7be8bc3c4c47e5492fc898b4f3fb7b34fb2a6dc7640e1cedaf83da4c77571d65&'
         }
