@@ -8,13 +8,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
     {
       icon: (
         <img
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kdom_%283-5%29.svg.png"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
           alt="UK Flag"
           className="w-8 h-8"
         />
       ),
       description: 'B1 English',
-      hoverColors: 'from-blue-500 via-white to-red-500',
+      hoverColors: 'from-red-600 via-blue-500 to-red-600',  // Yeni renk geçişi
       isUKFlag: true,
     },
     {
@@ -55,7 +55,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-56 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-48 h-44 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
               <p className="text-center text-white mt-4 text-lg font-medium">
                 {data.description}
