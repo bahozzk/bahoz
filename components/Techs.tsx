@@ -15,6 +15,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
       ),
       description: 'B1 English',
       hoverColors: 'from-blue-500 via-red-500 to-white',
+      isUKFlag: true,
     },
     {
       icon: (
@@ -26,6 +27,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
       ),
       description: 'A1 French',
       hoverColors: 'from-blue-500 via-white to-red-500',
+      isUKFlag: false,
     },
     {
       icon: (
@@ -35,12 +37,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
       ),
       description: 'B+ Volleyball',
       hoverColors: 'from-yellow-500 to-yellow-300',
+      isUKFlag: false,
     },
   ];
 
   return (
     <div className="my-20 md:px-8 w-full flex flex-col items-center">
-      <h2 className="font-bold text-2xl uppercase tracking-wide text-gray-700 mb-10">
+      <h2 className="font-bold text-2xl uppercase tracking-wide text-white mb-10">
         Qualifications
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
@@ -48,11 +51,13 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
           <div key={`qual${index}`} className="relative group">
             {/* Hover Glow Effect */}
             <div
-              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter`}
+              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-500 blur-md filter ${
+                data.isUKFlag ? 'bg-[url(https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1280px-Flag_of_the_United_Kingdom_%283-5%29.svg.png)]' : ''
+              }`}
             ></div>
 
             {/* Inner Black Box */}
-            <div className="relative w-full h-48 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+            <div className="relative w-72 h-64 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
               <div>{data.icon}</div>
               <p className="text-center text-white mt-4 text-lg font-medium">
                 {data.description}
