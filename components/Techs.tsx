@@ -3,8 +3,8 @@ import { faVolleyballBall } from '@fortawesome/free-solid-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
-const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
-  const techs = [
+const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
+  const qualifications = [
     {
       icon: (
         <img
@@ -14,7 +14,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         />
       ),
       description: 'B1 English',
-      hoverColors: 'hover:bg-gradient-to-r hover:from-blue-500 hover:via-red-500 hover:to-white',
+      hoverColors: 'from-blue-500 via-red-500 to-white',
     },
     {
       icon: (
@@ -25,7 +25,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         />
       ),
       description: 'A1 French',
-      hoverColors: 'hover:bg-gradient-to-r hover:from-blue-500 hover:via-white hover:to-red-500',
+      hoverColors: 'from-blue-500 via-white to-red-500',
     },
     {
       icon: (
@@ -34,7 +34,7 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
         </div>
       ),
       description: 'B+ Volleyball',
-      hoverColors: 'hover:bg-yellow-500',
+      hoverColors: 'from-yellow-500 to-yellow-300',
     },
   ];
 
@@ -43,17 +43,21 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
       <h2 className="font-bold text-2xl uppercase tracking-wide text-gray-700 mb-10">
         Qualifications
       </h2>
-      <div className="flex flex-row flex-wrap items-center justify-center gap-8 max-w-4xl">
-        {techs.map((data, index) => (
-          <div
-            key={`techs${index}`}
-            className={`relative w-40 h-48 p-4 bg-black rounded-lg shadow-md flex flex-col items-center justify-between transition-all duration-300 ${data.hoverColors} group`}
-          >
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 z-0"></div>
-            <div className="z-10">{data.icon}</div>
-            <p className="z-10 text-center text-white mt-4 text-lg font-medium">
-              {data.description}
-            </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+        {qualifications.map((data, index) => (
+          <div key={`qual${index}`} className="relative group">
+            {/* Hover Glow Effect */}
+            <div
+              className={`absolute -inset-2 rounded-lg bg-gradient-to-r ${data.hoverColors} opacity-0 group-hover:opacity-100 transition-all duration-300`}
+            ></div>
+
+            {/* Inner Black Box */}
+            <div className="relative w-full h-48 bg-black rounded-lg shadow-md flex flex-col items-center justify-center">
+              <div>{data.icon}</div>
+              <p className="text-center text-white mt-4 text-lg font-medium">
+                {data.description}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -61,4 +65,4 @@ const Techs: NextPage = (pageProps: PageProps): JSX.Element => {
   );
 };
 
-export default Techs;
+export default Qualifications;
