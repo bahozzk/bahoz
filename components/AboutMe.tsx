@@ -29,9 +29,9 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
 
     const content = (
         <p className='text-center my-4 text-lg text-white/80'>
-            Hiya! I'm Bahoz,
+            Hiya! I'm Bahoz, {/* ' → &apos; */}
             <br />
-            I am interested in programming but I don't know any languages 🙃
+            I am interested in programming but I don&apos;t know any languages 🙃 {/* ' → &apos; */}
         </p>
     );
 
@@ -43,17 +43,17 @@ const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
                     {content}
                     <div className='flex flex-row flex-wrap items-center justify-center'>
                         {links.map((data, index) => (
-                            <a 
-                                className='m-3' 
-                                rel="noreferrer noopener" 
-                                target="_blank" 
-                                href={data.href} 
+                            <a
                                 key={`link${index}`}
+                                className='m-3'
+                                rel="noreferrer"
+                                target='_blank'
+                                href={data.href}
                             >
-                                <FontAwesomeIcon 
-                                    className='text-white/90 hover:text-orange-400/90 duration-150' 
-                                    size={'2x'} 
-                                    icon={data.icon} 
+                                <FontAwesomeIcon
+                                    className='text-white/90 hover:text-orange-400/90 duration-150'
+                                    size='2x'
+                                    icon={data.icon}
                                 />
                             </a>
                         ))}
