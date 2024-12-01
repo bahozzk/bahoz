@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
-import Image from 'next/image'; // Next.js Image bileşenini import ettik
+import Image from 'next/image';
 
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
@@ -10,7 +10,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             title: 'Student',
             href: 'https://mehmetraufanadolulisesi.meb.k12.tr/tema/iletisim.php',
             position: '11th Grade',
-            icon: 'https://media.discordapp.net/attachments/818564854436462602/1312122008707793030/1732904656553.png?ex=674b5858&is=674a06d8&hm=7be8bc3c4c47e5492fc898b4f3fb7b34fb2a6dc7640e1cedaf83da4c77571d65&'
+            iconPath: '/assets/images/sapka.png'  // Path to the icon in the public folder
         }
     ];
 
@@ -30,7 +30,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                                 alt={`Organization ${index} - Icon`}
                                 width={120}
                                 height={120}
-                                src={data.icon}
+                                src={data.iconPath} // Using the icon path from the public folder
                             />
                             <div className='mx-2 text-center'>
                                 <div className='font-semibold text-lg'>{data.title}</div>
