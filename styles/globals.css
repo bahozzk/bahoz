@@ -13,7 +13,8 @@ body {
   scrollbar-width: none;
   scroll-behavior: smooth;
   color: white;
-  background: black;
+  background: url('/arkaplan.png') no-repeat center center fixed; /* Görseli ekledim */
+  background-size: cover; /* Tüm ekranı kaplasın */
 }
 
 body::-webkit-scrollbar {
