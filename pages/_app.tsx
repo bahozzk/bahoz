@@ -1,12 +1,12 @@
 import '../styles/globals.css';
 import '@fortawesome/fontawesome-svg-core/styles.css';
-
 import { config } from '@fortawesome/fontawesome-svg-core';
 import type { AppProps } from 'next/app';
 import { Analytics } from '@vercel/analytics/react';
 import type { PageProps } from '../types';
 import Head from 'next/head';
 import Script from 'next/script';
+import Image from 'next/image';  // Image component'ini import ettik
 
 config.autoAddCss = false;
 
@@ -56,7 +56,19 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
       />
       {/* End Google Analytics */}
 
-      <Component {...pageProps} />
+      {/* Arka Plan Görseli */}
+      <div style={{ position: 'relative', minHeight: '100vh' }}>
+        <Image
+          src="/assets/images/arkaplan.png" // Görselin yolu
+          alt="Background Image"
+          layout="fill" // Ekranın tamamını kaplar
+          objectFit="cover" // Görselin düzgün şekilde yerleşmesini sağlar
+          quality={100}
+          priority
+        />
+        <Component {...pageProps} />
+      </div>
+
       <Analytics />
     </>
   );
