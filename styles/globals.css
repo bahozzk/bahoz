@@ -13,10 +13,11 @@ body {
   scrollbar-width: none;
   scroll-behavior: smooth;
   color: white;
-  background: url('/assets/images/arkaplan.png') no-repeat center center fixed; /* Masaüstü için */
-  background-size: cover; /* Tüm ekranı kapla */
+  background: url('/assets/images/arkaplan.png') no-repeat center center fixed; /* Görseli her zaman sabit tut */
+  background-size: cover; /* Tüm ekranı kaplasın */
   height: 100%;
   min-height: 100vh;
+  background-attachment: fixed; /* Sayfa boyunca sabit kalmasını sağlar */
 }
 
 body::-webkit-scrollbar {
