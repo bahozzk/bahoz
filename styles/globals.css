@@ -13,9 +13,10 @@ body {
   scrollbar-width: none;
   scroll-behavior: smooth;
   color: white;
-  background: url('/assets/images/arkaplan.png') no-repeat center center fixed; /* Görseli ekledim */
-  background-size: cover; /* Masaüstü ve büyük ekranlar için tam ekran */
+  background: url('/assets/images/arkaplan.png') no-repeat center center fixed; /* Masaüstü için */
+  background-size: cover; /* Tüm ekranı kapla */
   height: 100%;
+  min-height: 100vh;
 }
 
 body::-webkit-scrollbar {
@@ -47,8 +48,10 @@ img {
 @media (max-width: 768px) {
   html,
   body {
-    background: url('/assets/images/arkaplan.png') no-repeat center center; /* Mobil için merkezde kalsın */
-    background-size: contain; /* Görsel taşmadan ekrana sığdır */
-    background-attachment: scroll; /* Mobilde kaydırma etkisi */
+    background: url('/assets/images/arkaplan.png') no-repeat center center; /* Görsel ortalanır */
+    background-size: cover; /* Mobil ekranı tamamen kaplasın */
+    background-attachment: scroll; /* Mobil cihazlarda daha iyi kaydırma uyumu */
+    height: auto;
+    min-height: 100vh; /* Görselin dikey olarak sığmasını sağlar */
   }
 }
