@@ -3,21 +3,29 @@
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap;');
 
-html,
-body {
-  padding: 0;
+html, body {
+  height: 100%; /* Sayfa boyutunu tam olarak kapsasın */
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   -ms-overflow-style: none;
   scrollbar-width: none;
   scroll-behavior: smooth;
   color: white;
-  background: url('/assets/images/arkaplan.png') no-repeat center center fixed; /* Görseli her zaman sabit tut */
+  background: url('/assets/images/arkaplan.png') no-repeat center center fixed;
   background-size: cover; /* Tüm ekranı kaplasın */
+  min-height: 100vh; /* Sayfanın tamamını kapsasın */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Üst kısımdan başlaması için */
   height: 100%;
-  min-height: 100vh;
-  background-attachment: fixed; /* Sayfa boyunca sabit kalmasını sağlar */
+}
+
+body > * {
+  z-index: 10; /* Diğer içeriklerin arka plandan üstte olmasını sağlamak */
 }
 
 body::-webkit-scrollbar {
@@ -33,26 +41,11 @@ body * {
   box-sizing: border-box;
 }
 
-.react-player-wrapper {
-  border-radius: 10px;
-}
-
-img {
-  pointer-events: none;
-}
-
-.allow-pointer {
-  pointer-events: visible !important;
-}
-
-/* Mobil cihazlar için özel ayar */
+/* Mobil uyumlu düzenlemeler */
 @media (max-width: 768px) {
-  html,
-  body {
-    background: url('/assets/images/arkaplan.png') no-repeat center center; /* Görsel ortalanır */
-    background-size: cover; /* Mobil ekranı tamamen kaplasın */
-    background-attachment: scroll; /* Mobil cihazlarda daha iyi kaydırma uyumu */
-    height: auto;
-    min-height: 100vh; /* Görselin dikey olarak sığmasını sağlar */
+  html, body {
+    background-attachment: scroll; /* Mobilde kaydırma sırasında arka plan düzgün görünsün */
+    background-position: center;
+    background-size: cover;
   }
 }
