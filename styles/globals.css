@@ -47,5 +47,21 @@ body * {
     background-attachment: scroll; /* Mobilde kaydırma sırasında arka plan düzgün görünsün */
     background-position: center;
     background-size: cover;
+    min-height: auto; /* Mobilde sabit yüksekliği engelle */
+  }
+
+  .main-container {
+    background: url('/assets/images/arkaplan.png') no-repeat center center;
+    background-size: cover;
+    min-height: 100vh; /* Mobilde görselin sayfa boyunca görünmesi için */
+  }
+}
+
+/* Bu kısım, tüm sayfanın boyutlarını kapsayacak şekilde arka planı sabitler */
+@media (min-width: 769px) {
+  .main-container {
+    background: url('/assets/images/arkaplan.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh; /* Sayfa boyutunu kapsasın */
   }
 }
