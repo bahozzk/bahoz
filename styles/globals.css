@@ -62,7 +62,7 @@ body {
   text-align: center;
   width: 100%;
   max-width: 800px;
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* Kutu arasındaki mesafeyi azaltma */
 }
 
 .info-card {
@@ -78,8 +78,8 @@ body {
 
 .app-logo {
   margin-right: 20px;
-  width: 60px;
-  height: 60px;
+  width: 100px; /* Logo boyutunu büyütme */
+  height: 100px;
   object-fit: contain;
 }
 
@@ -106,7 +106,7 @@ body {
 /* Gizlilik Politikası Alanı */
 .privacy-policy {
   max-width: 800px;
-  margin: 30px auto;
+  margin: 20px auto; /* Kutu arasındaki mesafeyi azaltma */
   padding: 20px;
   background: rgba(0, 0, 0, 0.6); /* Şeffaf arka plan */
   backdrop-filter: blur(8px); /* Bulanık arka plan efekti */
