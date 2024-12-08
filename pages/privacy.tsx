@@ -6,11 +6,9 @@ const PrivacyPolicy = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Sayfa yüklendikten 1 saniye sonra yükleme durumunu false yap
     const timer = setTimeout(() => {
       setLoading(false);
     }, 1000); // 1 saniye sonra yükleme animasyonunu kaldır
-
     return () => clearTimeout(timer);
   }, []);
 
@@ -88,7 +86,7 @@ const styles = {
   container: {
     fontFamily: "Arial, sans-serif",
     padding: "20px",
-    textAlign: "left" as "left",  // Tipi doğru şekilde belirtiyoruz
+    textAlign: "left" as "left",  // Doğru tip ataması
     lineHeight: "1.6",
   },
   header: {
@@ -101,7 +99,7 @@ const styles = {
   },
   titleContainer: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as "column",  // Doğru tip ataması
   },
   appName: {
     fontSize: "24px",
@@ -123,7 +121,7 @@ const styles = {
     justifyContent: "center",
     alignItems: "center",
     height: "100vh",
-    flexDirection: "column" as "column", // Tipi belirtiyoruz
+    flexDirection: "column" as "column", // Doğru tip ataması
   },
   heading: {
     fontSize: "20px",
