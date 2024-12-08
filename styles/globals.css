@@ -59,7 +59,7 @@ body {
 
 /* Uygulama bilgileri için şeffaf kart */
 .app-info-container {
-  text-align: center;
+  text-align: left; /* Yazı sola hizalandı */
   width: 100%;
   max-width: 800px;
   margin-bottom: 10px; /* Kutu arasındaki mesafeyi azaltma */
@@ -109,6 +109,10 @@ body {
 
 .privacy-policy h2, .privacy-policy h3 {
   margin-bottom: 15px;
+}
+
+.privacy-policy h2 {
+  font-weight: bold; /* Başlığı bold yaptım */
 }
 
 .privacy-policy ul {
