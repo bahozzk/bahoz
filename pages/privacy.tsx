@@ -16,7 +16,7 @@ const PrivacyPolicy = () => {
           />
         </div>
         <div style={styles.titleContainer}>
-          <h1 style={styles.appName}>Uygulama İsmi</h1>
+          <h1 style={styles.appName}>Çapraz Geçiş</h1>
           <p style={styles.developer}>
             Geliştirici:{" "}
             <Link href="https://www.developer-website.com">
@@ -28,7 +28,7 @@ const PrivacyPolicy = () => {
 
       {/* Gizlilik politikası başlıkları ve içerik */}
       <div style={styles.content}>
-        <p><strong>Son Güncelleme:</strong> [Tarih]</p>
+        <p><strong>Son Güncelleme:</strong> 8.12.2024</p>
         <p>
           Mobil oyun uygulamamız, çocukların gizliliğini korumayı taahhüt eder. Bu gizlilik politikası, topladığımız bilgileri, bu bilgileri nasıl kullandığımızı ve kullanıcıların haklarını açıklar.
         </p>
@@ -60,7 +60,7 @@ const PrivacyPolicy = () => {
         <p>Verilerinizin silinmesini talep edebilir veya uygulama içindeki veri toplama seçeneklerini devre dışı bırakabilirsiniz.</p>
 
         <h2>İletişim</h2>
-        <p>Herhangi bir sorunuz veya endişeniz varsa, bize şu adresten ulaşabilirsiniz: <strong>[email@example.com]</strong></p>
+        <p>Herhangi bir sorunuz veya endişeniz varsa, bize şu adresten ulaşabilirsiniz: <strong><a href="mailto:bahozerkek21@gmail.com">bahozerkek21@gmail.com</a></strong></p>
       </div>
     </div>
   );
@@ -70,7 +70,7 @@ const styles = {
   container: {
     fontFamily: "Arial, sans-serif",
     padding: "20px",
-    textAlign: "left", // Yazılar soldan başlasın
+    textAlign: "left" as "left", // Burada explicit olarak "left" tipini belirttim
     lineHeight: "1.6",
   },
   header: {
@@ -95,7 +95,7 @@ const styles = {
   },
   link: {
     color: "#0070f3", // Mavi renk link için
-    textDecoration: "none", // Alt çizgi yok
+    textDecoration: "underline", // Alt çizgi ekledik
   },
   content: {
     marginTop: "20px",
