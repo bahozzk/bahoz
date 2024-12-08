@@ -1,133 +1,63 @@
-import React, { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import React from 'react';
+import Image from 'next/image'; // Image bileşenini ekleyin
+import Head from 'next/head';
 
-const PrivacyPolicy = () => {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000); // 1 saniye sonra yükleme animasyonunu kaldır
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div style={styles.loader}>
-        <div className="spinner"></div>
-        <p>Yükleniyor...</p>
-      </div>
-    );
-  }
-
+const PrivacyPage = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <div style={styles.logoContainer}>
-          <Image
-            src="/assets/images/app-logo.png"
-            alt="Uygulama Logo"
-            width={100}
-            height={100}
-          />
-        </div>
-        <div style={styles.titleContainer}>
-          <h1 style={styles.appName}>Çapraz Geçiş</h1>
-          <p style={styles.developer}>
-            Geliştirici:{" "}
-            <Link href="https://www.developer-website.com">
-              <a target="_blank" style={styles.link}>Geliştirici İsmi</a>
-            </Link>
-          </p>
+    <div className="page-container">
+      <Head>
+        <title>Çapraz Geçiş - Gizlilik Politikası</title>
+        <meta name="description" content="Uygulama Gizlilik Politikası" />
+      </Head>
+
+      {/* Uygulama Bilgileri Kısmı */}
+      <div className="app-info">
+        <div className="app-info-container">
+          {/* Uygulama logosu, ismi ve geliştirici bilgisinin bulunduğu şeffaf kart */}
+          <div className="info-card">
+            {/* Uygulama logosu */}
+            <div className="app-logo">
+              <Image 
+                src="/assets/images/app-logo.png" // Logo dosyasının yolu
+                alt="Çapraz Geçiş Logo" 
+                width={120} // Logo genişliği
+                height={120} // Logo yüksekliği
+                className="logo-image"
+              />
+            </div>
+            <h1 className="app-name">Çapraz Geçiş</h1>
+            <p className="developer">Geliştirici: Bahoz</p>
+            <p className="app-description">Bu uygulama, kullanıcı deneyimini geliştirmek için minimal veriler toplar.</p>
+          </div>
         </div>
       </div>
 
-      <div style={styles.content}>
-        <p><strong>Son Güncelleme:</strong> 8.12.2024</p>
-        <p>
-          Mobil oyun uygulamamız, çocukların gizliliğini korumayı taahhüt eder. Bu gizlilik politikası, topladığımız bilgileri, bu bilgileri nasıl kullandığımızı ve kullanıcıların haklarını açıklar.
-        </p>
+      {/* Gizlilik Politikası Kısmı */}
+      <div className="privacy-policy">
+        <h2>Gizlilik Politikası</h2>
+        <p>Çapraz Geçiş uygulaması, kullanıcıların gizliliğine büyük önem verir ve yalnızca gerekli olan verileri toplar.</p>
+        <p>Uygulama, yalnızca aşağıdaki verileri toplar:</p>
+        <ul>
+          <li>Uygulama içi kullanım verileri (uygulama performansını iyileştirmek için anonimleştirilmiş veriler).</li>
+          <li>Kullanıcı kimlik bilgileri (e-posta adresi, yalnızca kullanıcı hesabı oluşturma amacıyla kullanılır).</li>
+        </ul>
+        <p>Bu veriler yalnızca uygulamanın sağlıklı çalışması ve kullanıcı deneyimini iyileştirmek amacıyla toplanır. Kişisel bilgileriniz hiçbir şekilde üçüncü şahıslarla paylaşılmayacaktır.</p>
         
-        <h2 style={styles.heading}>1. Topladığımız Bilgiler</h2>
-        <ul>
-          <li><strong>Kişisel Bilgiler:</strong> Uygulama, isim, adres, telefon numarası gibi kişisel bilgileri toplamaz.</li>
-          <li><strong>Otomatik Veriler:</strong> Uygulama kullanım istatistikleri, cihaz türü, işletim sistemi gibi anonim veriler toplanabilir.</li>
-        </ul>
+        <h3>Veri Güvenliği</h3>
+        <p>Toplanan veriler, yüksek güvenlik önlemleri altında saklanır. Güvenlik duvarları ve şifreleme teknolojileri kullanılarak kullanıcı verileri korunur.</p>
 
-        <h2 style={styles.heading}>2. Bilgilerin Kullanımı</h2>
-        <p>
-          Toplanan veriler yalnızca uygulamanın performansını artırmak, hata raporlarını çözmek ve kullanıcı deneyimini geliştirmek için kullanılır. Veriler hiçbir şekilde üçüncü taraflarla paylaşılmaz.
-        </p>
+        <h3>Çerezler</h3>
+        <p>Çapraz Geçiş uygulaması, kullanıcı deneyimini iyileştirmek amacıyla çerezler kullanabilir. Çerezler, uygulamanın kullanımını izlemek ve performansını artırmak için kullanılır.</p>
 
-        <h2 style={styles.heading}>3. Çocukların Gizliliği</h2>
-        <p>
-          Uygulama, 13 yaş altı çocuklara yönelik olarak tasarlanmıştır ve Çocukların Çevrimiçi Gizliliğini Koruma Yasası&apos;na (COPPA) uygundur. Çocuklardan bilerek kişisel bilgi toplamıyoruz.
-        </p>
+        <h3>Gizlilik Politikası Güncellemeleri</h3>
+        <p>Bu gizlilik politikası zaman zaman güncellenebilir. Politikadaki değişiklikler uygulama üzerinden duyurulacak ve kullanıcılar bilgilendirilecektir.</p>
 
-        <h2 style={styles.heading}>4. Reklam ve Satın Alma</h2>
-        <ul>
-          <li>Uygulama içi reklamlar, çocuk dostu içerik politikalarına uygundur.</li>
-          <li>Reklam ortaklarımızın gizlilik politikalarını incelemenizi öneririz.</li>
-          <li>Satın alma işlemleri yalnızca ebeveyn onayı ile gerçekleştirilebilir.</li>
-        </ul>
-
-        <h2 style={styles.heading}>5. Haklarınız</h2>
-        <p>Verilerinizin silinmesini talep edebilir veya uygulama içindeki veri toplama seçeneklerini devre dışı bırakabilirsiniz.</p>
-
-        <h2 style={styles.heading}>İletişim</h2>
-        <p>Herhangi bir sorunuz veya endişeniz varsa, bize şu adresten ulaşabilirsiniz: <strong><a href="mailto:bahozerkek21@gmail.com">bahozerkek21@gmail.com</a></strong></p>
+        <h3>İletişim</h3>
+        <p>Bu gizlilik politikası hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
+        <p>Email: bahozerkek21@gmail.com</p>
       </div>
     </div>
   );
 };
 
-const styles = {
-  container: {
-    fontFamily: "Arial, sans-serif",
-    padding: "20px",
-    textAlign: "left" as "left",  // Doğru tip ataması
-    lineHeight: "1.6",
-  },
-  header: {
-    display: "flex",
-    alignItems: "center",
-    marginBottom: "20px",
-  },
-  logoContainer: {
-    marginRight: "20px",
-  },
-  titleContainer: {
-    display: "flex",
-    flexDirection: "column" as "column",  // Doğru tip ataması
-  },
-  appName: {
-    fontSize: "24px",
-    margin: 0,
-  },
-  developer: {
-    fontSize: "16px",
-    marginTop: "5px",
-  },
-  link: {
-    color: "#0070f3", 
-    textDecoration: "underline", 
-  },
-  content: {
-    marginTop: "20px",
-  },
-  loader: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    flexDirection: "column" as "column", // Doğru tip ataması
-  },
-  heading: {
-    fontSize: "20px",
-    fontWeight: "bold",
-    marginTop: "20px",
-  },
-};
-
-export default PrivacyPolicy;
+export default PrivacyPage;
