@@ -20,6 +20,9 @@ const PrivacyPolicyPage: React.FC = () => {
             <p className="developer">
               Geliştirici: <a href="https://www.example.com">Bahoz</a>
             </p>
+            <p className="app-description">
+              Android platformunda geliştirilmiş eğlenceli bir mobil oyun.
+            </p>
           </div>
         </div>
       </div>
