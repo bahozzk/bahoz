@@ -1,11 +1,30 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
 const PrivacyPolicy = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Sayfa yüklendikten 1 saniye sonra yükleme durumunu false yap
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); // 1 saniye sonra yükleme animasyonunu kaldır
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return (
+      <div style={styles.loader}>
+        <div className="spinner"></div>
+        <p>Yükleniyor...</p>
+      </div>
+    );
+  }
+
   return (
     <div style={styles.container}>
-      {/* Uygulama logosu ve başlık */}
       <div style={styles.header}>
         <div style={styles.logoContainer}>
           <Image
@@ -26,7 +45,6 @@ const PrivacyPolicy = () => {
         </div>
       </div>
 
-      {/* Gizlilik politikası başlıkları ve içerik */}
       <div style={styles.content}>
         <p><strong>Son Güncelleme:</strong> 8.12.2024</p>
         <p>
@@ -70,7 +88,7 @@ const styles = {
   container: {
     fontFamily: "Arial, sans-serif",
     padding: "20px",
-    textAlign: "left" as "left", // Burada explicit olarak "left" tipini belirttim
+    textAlign: "left",
     lineHeight: "1.6",
   },
   header: {
@@ -83,7 +101,7 @@ const styles = {
   },
   titleContainer: {
     display: "flex",
-    flexDirection: "column" as "column", // "flexDirection" burada doğru tipte tanımlandı
+    flexDirection: "column",
   },
   appName: {
     fontSize: "24px",
@@ -99,6 +117,13 @@ const styles = {
   },
   content: {
     marginTop: "20px",
+  },
+  loader: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100vh",
+    flexDirection: "column",
   },
 };
 
