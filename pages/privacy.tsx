@@ -83,7 +83,7 @@ const styles = {
   },
   titleContainer: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "column" as "column", // "flexDirection" burada doğru tipte tanımlandı
   },
   appName: {
     fontSize: "24px",
