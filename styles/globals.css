@@ -29,23 +29,18 @@ body * {
   box-sizing: border-box;
 }
 
-.react-player-wrapper {
-  border-radius: 10px;
-}
-
-img {
-  pointer-events: none;
-}
-
-.allow-pointer {
-  pointer-events: visible !important;
-}
-
 /* Görünmeyen içerikleri görünür yapmak için eklenen stil */
-body, .container, .content {
-  visibility: visible;    /* İçeriği görünür yapar */
-  opacity: 1;             /* Şeffaflığı kaldırır */
-  display: block;         /* Öğeyi görünür yapar */
-  overflow: visible;      /* Taşan içerik görünür olur */
-  z-index: 1;             /* İçeriğin üstte olmasını sağlar */
+body {
+  visibility: visible !important;
+  opacity: 1 !important;
+  display: block !important;
+  overflow: visible !important;
+}
+
+.container, .content, .page {
+  visibility: visible !important;    /* İçeriği görünür yapar */
+  opacity: 1 !important;             /* Şeffaflığı kaldırır */
+  display: block !important;         /* Öğeyi görünür yapar */
+  overflow: visible !important;      /* Taşan içerik görünür olur */
+  z-index: 1 !important;             /* İçeriğin üstte olmasını sağlar */
 }
