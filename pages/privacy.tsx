@@ -11,7 +11,7 @@ const PrivacyPage: React.FC = () => {
           src="/assets/images/app-logo.png"
           alt="App Logo"
           width={150}  // Logo boyutunu büyütme
-          height="auto" // Doğru şekilde "auto" kullanımı
+          height={100} // Geçerli bir sayı kullanıldı
         />
         <div className="ml-4 text-white">
           <h1 className="text-2xl font-bold">Çapraz Geçiş</h1>
