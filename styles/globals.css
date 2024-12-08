@@ -59,21 +59,27 @@ body {
 /* Uygulama bilgileri için şeffaf kart */
 .app-info-container {
   text-align: center;
+  width: 100%;
+  max-width: 800px;
 }
 
 .info-card {
-  background: rgba(0, 0, 0, 0.5); /* Şeffaf siyah arka plan */
+  background: rgba(0, 0, 0, 0.7); /* Şeffaf siyah arka plan */
   backdrop-filter: blur(10px); /* Bulanık efekt */
   border-radius: 15px;
-  padding: 30px;
-  width: 100%;
-  max-width: 350px;
-  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  flex-direction: row; /* Yatay kart */
 }
 
-/* Logo düzenlemesi */
 .app-logo {
-  margin-bottom: 20px;
+  margin-right: 20px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
 }
 
 .logo-image {
@@ -81,7 +87,6 @@ body {
   object-fit: contain; /* Resmin orantısını koruyarak sığdırma */
 }
 
-/* Uygulama ismi, geliştirici ve açıklama metni */
 .app-name {
   font-size: 24px;
   font-weight: bold;
@@ -92,9 +97,19 @@ body {
   margin-top: 10px;
 }
 
-.app-description {
-  font-size: 14px;
-  margin-top: 5px;
+.developer a {
+  color: #1E90FF; /* Mavi renk */
+  text-decoration: underline; /* Altı çizili */
+}
+
+/* Bize ulaşın kısmı */
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info a {
+  color: #1E90FF; /* Mavi renk */
+  text-decoration: underline;
 }
 
 /* Gizlilik Politikası Alanı */
