@@ -1,63 +1,67 @@
-import React from 'react';
-import Image from 'next/image'; // Image bileşenini ekleyin
-import Head from 'next/head';
+import React from "react";
+import Image from "next/image";
 
-const PrivacyPage = () => {
+const PrivacyPolicyPage: React.FC = () => {
   return (
     <div className="page-container">
-      <Head>
-        <title>Çapraz Geçiş - Gizlilik Politikası</title>
-        <meta name="description" content="Uygulama Gizlilik Politikası" />
-      </Head>
-
-      {/* Uygulama Bilgileri Kısmı */}
-      <div className="app-info">
-        <div className="app-info-container">
-          {/* Uygulama logosu, ismi ve geliştirici bilgisinin bulunduğu şeffaf kart */}
-          <div className="info-card">
-            {/* Uygulama logosu */}
-            <div className="app-logo">
-              <Image 
-                src="/assets/images/app-logo.png" // Logo dosyasının yolu
-                alt="Çapraz Geçiş Logo" 
-                width={120} // Logo genişliği
-                height={120} // Logo yüksekliği
-                className="logo-image"
-              />
-            </div>
+      {/* Uygulama Bilgileri Kartı */}
+      <div className="app-info-container">
+        <div className="info-card">
+          <div className="app-logo">
+            <Image
+              src="/assets/images/app-logo.png"
+              alt="App Logo"
+              width={60}
+              height={60}
+              className="logo-image"
+            />
+          </div>
+          <div>
             <h1 className="app-name">Çapraz Geçiş</h1>
-            <p className="developer">Geliştirici: Bahoz</p>
-            <p className="app-description">Bu uygulama, kullanıcı deneyimini geliştirmek için minimal veriler toplar.</p>
+            <p className="developer">
+              Geliştirici: <a href="https://www.example.com">Bahoz</a>
+            </p>
+            <p className="app-description">
+              Android platformunda geliştirilmiş eğlenceli bir mobil oyun.
+            </p>
           </div>
         </div>
       </div>
 
-      {/* Gizlilik Politikası Kısmı */}
+      {/* Gizlilik Politikası */}
       <div className="privacy-policy">
         <h2>Gizlilik Politikası</h2>
-        <p>Çapraz Geçiş uygulaması, kullanıcıların gizliliğine büyük önem verir ve yalnızca gerekli olan verileri toplar.</p>
-        <p>Uygulama, yalnızca aşağıdaki verileri toplar:</p>
+        <p>
+          Çapraz Geçiş uygulaması, kullanıcı gizliliğine saygı gösterir. Bu
+          gizlilik politikası, uygulama kullanıcılarının gizliliğini nasıl
+          koruduğumuzu açıklar.
+        </p>
+        <h3>Topladığımız Bilgiler</h3>
         <ul>
-          <li>Uygulama içi kullanım verileri (uygulama performansını iyileştirmek için anonimleştirilmiş veriler).</li>
-          <li>Kullanıcı kimlik bilgileri (e-posta adresi, yalnızca kullanıcı hesabı oluşturma amacıyla kullanılır).</li>
+          <li>Uygulama kullanım verileri</li>
+          <li>Cihaz bilgileri</li>
+          <li>Konum verileri (isteğe bağlı)</li>
         </ul>
-        <p>Bu veriler yalnızca uygulamanın sağlıklı çalışması ve kullanıcı deneyimini iyileştirmek amacıyla toplanır. Kişisel bilgileriniz hiçbir şekilde üçüncü şahıslarla paylaşılmayacaktır.</p>
-        
-        <h3>Veri Güvenliği</h3>
-        <p>Toplanan veriler, yüksek güvenlik önlemleri altında saklanır. Güvenlik duvarları ve şifreleme teknolojileri kullanılarak kullanıcı verileri korunur.</p>
+        <h3>Bilgilerin Kullanımı</h3>
+        <p>
+          Topladığımız bilgiler, uygulama içi deneyimi iyileştirmek, kullanıcı
+          geri bildirimlerini analiz etmek ve güvenlik sağlamak amacıyla
+          kullanılmaktadır.
+        </p>
 
-        <h3>Çerezler</h3>
-        <p>Çapraz Geçiş uygulaması, kullanıcı deneyimini iyileştirmek amacıyla çerezler kullanabilir. Çerezler, uygulamanın kullanımını izlemek ve performansını artırmak için kullanılır.</p>
-
-        <h3>Gizlilik Politikası Güncellemeleri</h3>
-        <p>Bu gizlilik politikası zaman zaman güncellenebilir. Politikadaki değişiklikler uygulama üzerinden duyurulacak ve kullanıcılar bilgilendirilecektir.</p>
-
+        <h3>Gizliliğin Korunması</h3>
+        <p>
+          Kişisel bilgilerinizi üçüncü taraflarla paylaşmamaktayız. Ancak,
+          uygulama hizmet sağlayıcılarıyla gerekli veri paylaşımını yapabiliriz.
+        </p>
         <h3>İletişim</h3>
-        <p>Bu gizlilik politikası hakkında sorularınız varsa, lütfen bizimle iletişime geçin:</p>
-        <p>Email: bahozerkek21@gmail.com</p>
+        <p className="contact-info">
+          Bize ulaşın:{" "}
+          <a href="mailto:bahozerkek21@gmail.com">bahozerkek21@gmail.com</a>
+        </p>
       </div>
     </div>
   );
 };
 
-export default PrivacyPage;
+export default PrivacyPolicyPage;
