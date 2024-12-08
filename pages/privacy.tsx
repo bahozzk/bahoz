@@ -88,7 +88,7 @@ const styles = {
   container: {
     fontFamily: "Arial, sans-serif",
     padding: "20px",
-    textAlign: "left",
+    textAlign: "left" as "left",  // Tipi doğru şekilde belirtiyoruz
     lineHeight: "1.6",
   },
   header: {
