@@ -4,16 +4,16 @@ import { FaEnvelope } from 'react-icons/fa';
 
 const PrivacyPage: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-start min-h-screen bg-black p-6 text-white">
+    <div className="flex flex-col items-center justify-start min-h-screen bg-black p-6">
       {/* Uygulama Bilgileri Kartı */}
       <div className="flex items-center justify-start w-full max-w-screen-sm p-4 bg-black bg-opacity-60 rounded-lg mb-4">
         <Image
           src="/assets/images/app-logo.png"
           alt="App Logo"
           width={150}  // Logo boyutunu büyütme
-          height={100} // Geçerli bir sayı kullanıldı
+          height="auto" // Doğru şekilde "auto" kullanımı
         />
-        <div className="ml-4">
+        <div className="ml-4 text-white">
           <h1 className="text-2xl font-bold">Çapraz Geçiş</h1>
           <p className="text-lg">Geliştirici: <a href="https://www.example.com" className="text-blue-500 underline">Bahoz</a></p>
         </div>
@@ -21,8 +21,8 @@ const PrivacyPage: React.FC = () => {
 
       {/* Gizlilik Sözleşmesi Kartı */}
       <div className="w-full max-w-screen-sm p-6 bg-black bg-opacity-60 rounded-lg">
-        <h2 className="text-xl font-bold mb-4">Gizlilik Sözleşmesi</h2>
-        <p>
+        <h2 className="text-xl font-bold text-white mb-4">Gizlilik Sözleşmesi</h2>
+        <p className="text-white">
           Çapraz Geçiş uygulaması, kullanıcıların gizliliğini ciddiye alır. Bu gizlilik politikası, uygulamayı kullanırken topladığımız bilgileri nasıl kullandığımızı ve koruduğumuzu açıklar.
           <br /><br />
           1. **Toplanan Bilgiler**: Uygulamayı kullanırken, cihazınıza ve kullanım alışkanlıklarınıza dair bazı anonim veriler toplanabilir. Bu veriler, yalnızca uygulamanın iyileştirilmesi ve kullanıcı deneyiminin geliştirilmesi için kullanılacaktır.
