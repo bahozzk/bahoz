@@ -40,3 +40,12 @@ img {
 .allow-pointer {
   pointer-events: visible !important;
 }
+
+/* Görünmeyen içerikleri görünür yapmak için eklenen stil */
+body, .container, .content {
+  visibility: visible;    /* İçeriği görünür yapar */
+  opacity: 1;             /* Şeffaflığı kaldırır */
+  display: block;         /* Öğeyi görünür yapar */
+  overflow: visible;      /* Taşan içerik görünür olur */
+  z-index: 1;             /* İçeriğin üstte olmasını sağlar */
+}
