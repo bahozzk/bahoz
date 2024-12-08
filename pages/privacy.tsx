@@ -46,7 +46,7 @@ const PrivacyPolicy = () => {
 
         <h2>3. Çocukların Gizliliği</h2>
         <p>
-          Uygulama, 13 yaş altı çocuklara yönelik olarak tasarlanmıştır ve Çocukların Çevrimiçi Gizliliğini Koruma Yasası'na (COPPA) uygundur. Çocuklardan bilerek kişisel bilgi toplamıyoruz.
+          Uygulama, 13 yaş altı çocuklara yönelik olarak tasarlanmıştır ve Çocukların Çevrimiçi Gizliliğini Koruma Yasası&apos;na (COPPA) uygundur. Çocuklardan bilerek kişisel bilgi toplamıyoruz.
         </p>
 
         <h2>4. Reklam ve Satın Alma</h2>
