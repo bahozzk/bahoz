@@ -62,7 +62,7 @@ body {
   text-align: center;
   width: 100%;
   max-width: 800px;
-  margin-bottom: 20px; /* Kutu arasındaki mesafeyi azaltma */
+  margin-bottom: 10px; /* Kutu arasındaki mesafeyi azaltma */
 }
 
 .info-card {
@@ -71,21 +71,15 @@ body {
   border-radius: 15px;
   padding: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Yatayda sola hizala */
   align-items: center;
   flex-direction: row; /* Yatay kart */
 }
 
 .app-logo {
   margin-right: 20px;
-  width: 100px; /* Logo boyutunu büyütme */
-  height: 100px;
-  object-fit: contain;
-}
-
-.logo-image {
-  border-radius: 50%; /* Logo'yu yuvarlak yapmak için */
-  object-fit: contain; /* Resmin orantısını koruyarak sığdırma */
+  width: 150px; /* Logo boyutunu büyütme */
+  height: auto; /* Yüksekliği orantılı yapma */
 }
 
 .app-name {
@@ -106,7 +100,7 @@ body {
 /* Gizlilik Politikası Alanı */
 .privacy-policy {
   max-width: 800px;
-  margin: 20px auto; /* Kutu arasındaki mesafeyi azaltma */
+  margin: 10px auto; /* Kutu arasındaki mesafeyi azaltma */
   padding: 20px;
   background: rgba(0, 0, 0, 0.6); /* Şeffaf arka plan */
   backdrop-filter: blur(8px); /* Bulanık arka plan efekti */
