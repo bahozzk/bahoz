@@ -11,9 +11,8 @@ const PrivacyPolicyPage: React.FC = () => {
             <Image
               src="/assets/images/app-logo.png"
               alt="App Logo"
-              width={100} // Logo boyutunu büyütme
-              height={100}
-              className="logo-image"
+              width={150} // Logo boyutunu büyütme
+              height={auto}
             />
           </div>
           <div>
