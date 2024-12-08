@@ -54,6 +54,7 @@ body {
   background-color: black;
   color: white;
   padding: 20px;
+  flex-direction: column;
 }
 
 /* Uygulama bilgileri için şeffaf kart */
@@ -61,6 +62,7 @@ body {
   text-align: center;
   width: 100%;
   max-width: 800px;
+  margin-bottom: 30px;
 }
 
 .info-card {
@@ -71,7 +73,6 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
   flex-direction: row; /* Yatay kart */
 }
 
@@ -102,16 +103,6 @@ body {
   text-decoration: underline; /* Altı çizili */
 }
 
-/* Bize ulaşın kısmı */
-.contact-info {
-  margin-top: 20px;
-}
-
-.contact-info a {
-  color: #1E90FF; /* Mavi renk */
-  text-decoration: underline;
-}
-
 /* Gizlilik Politikası Alanı */
 .privacy-policy {
   max-width: 800px;
@@ -133,4 +124,14 @@ body {
 
 .privacy-policy p {
   line-height: 1.6;
+}
+
+/* Bize ulaşın kısmı */
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info a {
+  color: #1E90FF; /* Mavi renk */
+  text-decoration: underline;
 }
