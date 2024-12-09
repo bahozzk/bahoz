@@ -17,9 +17,9 @@ const PrivacyPolicyPage: React.FC = () => {
             />
           </div>
           <div>
-            <h1 className="app-name">Çapraz Geçiş</h1>
+            <h1 className="app-name">Kim Bu Ünlü?</h1>
             <p className="developer">
-              Geliştirici: <a href="https://www.example.com">Bahoz</a>
+              Geliştirici: <a href="https://play.google.com">Bahoz</a>
             </p>
             <p className="app-description">
               Android platformunda geliştirilmiş eğlenceli bir mobil oyun.
