@@ -32,7 +32,7 @@ const PrivacyPolicyPage: React.FC = () => {
       <div className="privacy-policy">
         <h2>Gizlilik Politikası</h2>
         <p>
-          Çapraz Geçiş uygulaması, kullanıcı gizliliğine büyük önem verir. Bu
+          Kim Bu Ünlü? oyunu, kullanıcı gizliliğine büyük önem verir. Bu
           gizlilik politikası, kullanıcı bilgilerinin nasıl toplandığını, nasıl
           kullanıldığını ve nasıl korunduğunu açıklar. Uygulamamızı kullanarak,
           aşağıdaki koşulları kabul etmiş olursunuz.
