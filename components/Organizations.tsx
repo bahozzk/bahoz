@@ -12,6 +12,12 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             position: '11th Grade',
             iconPath: '/assets/images/sapka.png'  // Path to the icon in the public folder
         }
+        {
+            title: 'Developer/Manager',
+            href: 'https://mehmetraufanadolulisesi.meb.k12.tr/tema/iletisim.php',
+            position: 'Bottle Madness',
+            iconPath: '/assets/images/appicon.png'  // Path to the icon in the public folder
+        }
     ];
 
     return (
