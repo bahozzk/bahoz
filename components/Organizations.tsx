@@ -14,7 +14,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
         },
         {
             title: 'Developer/Manager',
-            href: 'https://mehmetraufanadolulisesi.meb.k12.tr/tema/iletisim.php',
+            href: 'https://play.google.com/store/apps/details?id=com.bahoz.sisecilginligi',
             position: 'Bottle Madness',
             iconPath: '/assets/images/appicon.png'  // Path to the icon in the public folder
         }
