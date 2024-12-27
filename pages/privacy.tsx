@@ -17,9 +17,9 @@ const PrivacyPolicyPage: React.FC = () => {
             />
           </div>
           <div>
-            <h1 className="app-name">Kim Bu Ünlü?</h1>
+            <h1 className="app-name">Şişe Çılgınlığı</h1>
             <p className="developer">
-              Geliştirici: <a href="https://play.google.com">Bahoz</a>
+              Geliştirici: <a href="https://play.google.com/store/apps/dev?id=7998220962786097995">Bahoz</a>
             </p>
             <p className="app-description">
               Android platformunda geliştirilmiş eğlenceli bir mobil oyun.
@@ -32,7 +32,7 @@ const PrivacyPolicyPage: React.FC = () => {
       <div className="privacy-policy">
         <h2>Gizlilik Politikası</h2>
         <p>
-          Kim Bu Ünlü? oyunu, kullanıcı gizliliğine büyük önem verir. Bu
+          Şişe Çılgınlığı oyunu, kullanıcı gizliliğine büyük önem verir. Bu
           gizlilik politikası, kullanıcı bilgilerinin nasıl toplandığını, nasıl
           kullanıldığını ve nasıl korunduğunu açıklar. Uygulamamızı kullanarak,
           aşağıdaki koşulları kabul etmiş olursunuz.
