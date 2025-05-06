@@ -96,15 +96,15 @@ const videoHeaderStyle = {
 };
 
 const videoWrapperStyle = {
-  position: 'relative',
+  position: 'relative' as const,
   paddingBottom: '56.25%',
   height: 0,
-  overflow: 'hidden',
+  overflow: 'hidden' as const,
   borderRadius: '12px',
 };
 
 const iframeStyle = {
-  position: 'absolute',
+  position: 'absolute' as const,
   top: 0,
   left: 0,
   width: '100%',
