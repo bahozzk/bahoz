@@ -15,23 +15,21 @@ const EdebiyatProje = () => {
 
       {/* 2. Başlık */}
       <section style={sectionStyle}>
-        <h1 style={headerStyle}>Başlık 2</h1>
+        <h1 style={headerStyle}>Müze ve ada hakkında bilgiler</h1>
         <div style={paragraphContainerStyle}>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
+          <p style={paragraphStyle}>Burgazada, İstanbul’un Prens Adaları arasında yer alan, doğal güzellikleri ve sakin atmosferiyle öne çıkan bir adadır. Özellikle yazar ve sanatçılar için ilham verici bir ortam sunan ada, uzun yıllar boyunca Sait Faik Abasıyanık’a da ev sahipliği yapmıştır. Sessiz sokakları, denizle iç içe yaşantısı ve balıkçılarıyla Sait Faik’in öykülerine sıkça konu olan bu ada, onun edebi kimliğinin bir parçası hâline gelmiştir. </p>
+          <p style={paragraphStyle}>Sait Faik Abasıyanık Müzesi, yazarın Burgazada’daki evi restore edilerek 1959 yılında ziyarete açılmıştır. Müzede Sait Faik’e ait kişisel eşyalar, kitaplar, el yazmaları ve fotoğraflar sergilenmektedir. Her odasında yazarın hayatına ve eserlerine dair izler bulunur. Bu müze, sadece bir yaşam alanı değil, aynı zamanda Türk edebiyatının önemli bir tanığı olarak ziyaretçilere ilham vermeye devam etmektedir.  </p>
         </div>
       </section>
 
       {/* 3. Başlık */}
       <section style={sectionStyle}>
-        <h1 style={headerStyle}>Başlık 3</h1>
+        <h1 style={headerStyle}>Gezi yazısı</h1>
         <div style={paragraphContainerStyle}>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
-          <p style={paragraphStyle}>Buraya kendi yazını yazabilirsin...</p>
+          <p style={paragraphStyle}>O gün sabah erkenden kalktım, duşa girdim, ardından tıraş oldum ve Kadıköy’e gitmek üzere evden çıkıp durağa geçtim. Otobüsüm gelince bindim ve yaklaşık 25 durak sonra Kadıköy’e ulaştım. Arkadaşlarımı arayıp nerede olduklarını sordum, sonra yanlarına gittim. Balım arkadaşım trafiğe takıldığı için bize yetişemedi. Vapurumuzun kalkmasına kısa süre kaldığı için hızlıca börekçiye doğru yürümeye başladık ve içeri geçtik. Arkadaşlarım yerleşirken ben de Balım’ı duraktan alıp börekçiye getirdim. Siparişlerimizi verdik, kahvaltımızı yaptık ve hemen iskeleye doğru yürüdük. Kartlarımızı bastık ve yanaşmakta olan vapurumuza binip en üst kata çıktık. Annelerimiz rüzgâra sırtlarını dönüp bir yandan bizi kontrol ederken bir yandan da masmavi denizin tadını çıkarıyorlardı. O sırada ben ve vlog çeken arkadaşlarım vapurda çekmemiz gereken videoları kaydettik ve diğer vlog çeken arkadaşlara da katıldık.  </p>
+          <p style={paragraphStyle}>Ardından kız arkadaşlarım makyajlarını tazeledi, takma kirpiklerini taktı ve bolca fotoğraf çekindik. Yaklaşık 50 dakikalık yolculuk nasıl geçti anlamadık. Vapurdan indiğimizde adanın ılık havası adeta bize “hoş geldiniz” diyordu. Girişte Sait Faik Abasıyanık’ın heykeli bizi karşıladı. Ben ve Zöhre arkadaşım heykel önünde birkaç bilgilendirici video çekerken, Eda ve Sema arkadaşım meydanda dolaşırken birkaç tatsız olaya denk geldiler. Daha sonra onlar da kendi videolarını çektiler ve hemen adadaki kitapçıya koşan Sevde arkadaşımızın yanına gittik. Kitapçıda kısa bir röportaj gerçekleştirdik ve ardından müzeye doğru yola koyulduk. Renkli sokaklardan ve dik yokuşlardan geçerken küçük bir park bulduk ve biraz soluklanmak için mola verdik. Mola sırasında halay çektik, videolar kaydettik ve müzede neler anlatacağımızı konuştuk. Bir süre sonra toparlanıp müzeye yürümeye başladık. Müzenin kapısında video kaydı almanın yasak olduğunu gördük ve ne yapabileceğimizi arkadaşlarımızla tartıştık. Sonunda video yerine fotoğraf çekip daha sonra fotoğrafları seslendirerek vlogu oluşturma kararı aldık.  </p>
+          <p style={paragraphStyle}>Ben müze gezisi sırasında bol bol görüntü aldım ve bahçeye indim. Bahçede erik yiyen arkadaşlarımdan biraz erik aldıktan sonra oturdum ve arkadaşlarımızın bize sergilediği küçük bir canlandırmayı izledim. Daha sonra tüm arkadaşlarımı toplayarak müzeden ayrıldım. Yavaş yavaş meydana doğru yürümeye başladık. Yolda bir yerliye denk geldik ve kısa bir sohbet gerçekleştirdik. Ardından marketten dondurma alıp annelerimizle buluştuk. Vapur dönüş saatlerini kontrol edip takıcılara doğru ilerledik. Biraz gezip baktıktan sonra dönüş vapuruna binip adadan ayrıldık. Gemide hem hüzünlü hem de mutluyduk. Hüzünlüydük çünkü bu büyüleyici yerden ayrılmak zorundaydık; mutluyduk çünkü artık yemek yiyecektik.  </p>
+          <p style={paragraphStyle}>Kadıköy’e vardık ve hemen kendimizi bir dönerciye attık. Siparişlerimizi verdik, beklerken Zenan ile Balım’ın vlogları için çektikleri kapanış kısımlarını izledik. Daha sonra yemekler geldi, yemeğimizi yedik ve dönerciden ayrıldık. Otobüs duraklarına doğru ilerlemeye başladık. Herkesi otobüslerine bırakırken Zenan arkadaşımın annesi Selam Abla’nın “Bahoz oğlum, bir daha kızlarımı seninle bir yere gönderirsem asla gözüm arkada kalmayacak, adada ve Kadıköy’de kızlarımıza hep sahip çıktın” deyişi ve Eda arkadaşımın annesi Kadriye Abla’nın “Bahoz, abileri gibi her yerde önde yürüyüp yol gösterirken sürekli arkasını dönüp kızları kontrol ediyordu” sözleri beni hem gururlandırdı hem de vedalaşmanın verdiği hüzünle duygulandırdı. Herkesi otobüslerine bindirdikten sonra ben de kendi durağıma yalnız gittim ve otobüsümle eve dönerek bu güzel günü içimden değerlendirip tamamladım. </p>
         </div>
       </section>
 
