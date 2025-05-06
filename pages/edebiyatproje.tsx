@@ -78,12 +78,14 @@ const headerStyle = {
 };
 
 const paragraphContainerStyle = {
-  background: 'rgba(0, 0, 0, 0.5)', // Koyu gri ve daha fazla şeffaflık
-  backdropFilter: 'blur(8px)', // Arka plan bulanıklaştırması
+  backgroundColor: 'rgba(30, 30, 30, 0.4)', // Daha açık, yarı saydam koyu gri
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)', // Safari desteği
   padding: '1.5rem',
   borderRadius: '10px',
-  marginBottom: '2rem',
+  border: '1px solid rgba(255, 255, 255, 0.1)', // Hafif kenar çizgisi
 };
+
 
 const paragraphStyle = {
   fontSize: '1rem',
