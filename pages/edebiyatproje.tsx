@@ -78,10 +78,11 @@ const headerStyle = {
 };
 
 const paragraphContainerStyle = {
-  backgroundColor: 'rgba(46, 46, 64, 0.7)', // Şeffaf arka plan
+  backgroundColor: 'rgba(0, 0, 0, 0.4)', // Şeffaf arka plan
   padding: '1.5rem',
   borderRadius: '10px',
   backdropFilter: 'blur(8px)', // Arka planı bulanıklaştırma
+  marginBottom: '2rem',
 };
 
 const paragraphStyle = {
