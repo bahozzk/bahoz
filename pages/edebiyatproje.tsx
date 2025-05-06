@@ -9,7 +9,7 @@ const EdebiyatProje = () => {
       margin: 'auto',
       fontFamily: 'Georgia, serif',
       lineHeight: '1.7',
-      color: '#333'
+      color: 'white'
     }}>
       <h1>Sait Faik Abasıyanık'ın Hayatı</h1>
       <p>Sait Faik Abasıyanık, 18 Kasım 1906’da Adapazarı’nda doğdu. Babası ticaretle uğraşan bir bürokrat, annesi ise Adapazarı’nın köklü ailelerinden birine mensuptu. Küçük yaşlarda içine kapanık bir çocuktu. İlkokulu Adapazarı’nda bitirdikten sonra İstanbul’a taşınan ailesiyle birlikte Galatasaray Lisesi’nde eğitimine devam etti. Edebiyata ilgisi lise yıllarında başladı. 1929 yılında ilk öyküsü olan “Uçurtmalar” yayımlandı. 1931’de İsviçre’ye gönderildi ancak eğitimi yarıda bırakarak Fransa’nın Grenoble kentine geçti. Orada geçirdiği zaman, ileride yazacağı öykülere derin izler bıraktı. 1934’te İstanbul’a döndü ve bir süre öğretmenlik yaptı. Ardından tüm zamanını yazmaya ayırdı. 1936 yılında ilk öykü kitabı “Semaver” yayımlandı ve edebiyat çevresinde dikkat çekti. Bu dönemde özellikle Fransız edebiyatından etkilenmiş, kısa öyküye özgün bir soluk getirmiştir.</p>
