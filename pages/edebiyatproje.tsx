@@ -1,18 +1,17 @@
-import React from 'react';
 
 const EdebiyatProje = () => {
   return (
     <main style={{
       padding: '2rem',
-      maxWidth: '900px',
+      maxWidth: '800px',
       margin: 'auto',
-      fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-      color: '#f5f5f5',
-      backgroundColor: '#1e1e2f',
-      borderRadius: '16px',
-      boxShadow: '0 8px 24px rgba(0, 0, 0, 0.3)',
+      fontFamily: 'Georgia, serif',
+      lineHeight: '1.8',
+      color: 'white',
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      backdropFilter: 'blur(8px)',
+      borderRadius: '12px',
     }}>
-      
       {/* 1. Başlık */}
       <section style={{ marginBottom: '3rem' }}>
         <h1 style={{
