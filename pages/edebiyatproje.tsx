@@ -78,7 +78,7 @@ const headerStyle = {
 };
 
 const paragraphContainerStyle = {
-  background: 'rgba(255, 255, 255, 0.2)', // Şeffaf beyaz arka plan
+  background: 'rgba(0, 0, 0, 0.5)', // Koyu gri ve daha fazla şeffaflık
   backdropFilter: 'blur(8px)', // Arka plan bulanıklaştırması
   padding: '1.5rem',
   borderRadius: '10px',
