@@ -90,6 +90,11 @@ const paragraphStyle = {
   marginBottom: '1rem',
 };
 
+const mobileParagraphStyle = {
+  fontSize: '0.9rem', // Mobilde daha küçük yazı
+  marginBottom: '1rem',
+};
+
 const videoHeaderStyle = {
   fontSize: '1.5rem',
   marginBottom: '1rem',
@@ -112,6 +117,10 @@ const iframeStyle = {
   width: '100%',
   height: '100%',
   borderRadius: '12px',
+};
+
+const isMobile = window.innerWidth <= 768;
+
 };
 
 export default EdebiyatProje;
