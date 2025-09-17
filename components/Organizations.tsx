@@ -7,9 +7,9 @@ import Image from 'next/image';
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
         {
-            title: 'Student',
-            href: 'https://mehmetraufanadolulisesi.meb.k12.tr/tema/iletisim.php',
-            position: '11th Grade',
+            title: 'Admin',
+            href: 'https://ivymc.net',
+            position: 'Head Admin',
             iconPath: '/assets/images/sapka.png'  // Path to the icon in the public folder
         }
     ];
