@@ -10,7 +10,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             title: 'Admin',
             href: 'https://ivymc.net',
             position: 'Head Admin',
-            iconPath: '/assets/images/sapka.png'  // Path to the icon in the public folder
+            iconPath: '/assets/images/sapka.png'  
         }
     ];
 
