@@ -7,9 +7,9 @@ import Image from 'next/image';
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
     const organizations = [
         {
-            title: 'Admin',
+            title: 'IvyMC Towny',
             href: 'https://ivymc.net',
-            position: 'Head Admin',
+            position: 'Founder',
             iconPath: '/assets/images/sapka.png'  
         }
     ];
