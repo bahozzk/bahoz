@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from 'react';
 
 const EdebiyatProje: React.FC = () => {
@@ -119,7 +120,6 @@ const paragraphContainerStyle: React.CSSProperties = {
   borderRadius: '10px',
   border: '1px solid rgba(255, 255, 255, 0.1)', // Hafif kenar çizgisi
 };
-
 
 const paragraphStyle: React.CSSProperties = {
   fontSize: '1rem',
