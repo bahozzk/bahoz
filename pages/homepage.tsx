@@ -98,7 +98,7 @@ const PrivacyPolicyPage: React.FC = () => {
             )}
           </button>
 
-          <AnimatePresence>
+          <AnimatePresence initial={false}>
             {isOpen && (
               <motion.div
                 key="policy-content"
