@@ -1,13 +1,34 @@
 // pages/homepage.tsx
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 
 export default function Homepage(): JSX.Element {
-  // Play Store linkleri (gerekirse kendine göre değiştir)
   const developerUrl =
     "https://play.google.com/store/apps/dev?id=7998220962786097995";
   const gameUrl =
     "https://play.google.com/store/apps/details?id=com.bahoz.game2048";
+
+  const [activeTab, setActiveTab] = useState("about");
+
+  // Hash değişimini izle
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        setActiveTab(hash);
+      } else {
+        setActiveTab("about");
+      }
+    };
+
+    handleHashChange();
+    window.addEventListener("hashchange", handleHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", handleHashChange);
+    };
+  }, []);
 
   return (
     <>
@@ -19,9 +40,9 @@ export default function Homepage(): JSX.Element {
         />
       </Head>
 
-      <main className="min-h-screen flex items-center justify-center px-6 py-12 bg-[linear-gradient(180deg,_#0f172a_0%,_#071130_100%)]">
-        <div className="w-full max-w-4xl">
-          {/* Üst: Başlık + küçük açıklama */}
+      <main className="min-h-screen flex items-center justify-center px-6 py-12">
+        <div className="w-full max-w-5xl">
+          {/* Üst header */}
           <header className="mb-8 text-center">
             <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg">
               2048
@@ -31,15 +52,10 @@ export default function Homepage(): JSX.Element {
             </p>
           </header>
 
-          {/* İçerik 2 kolon: sola görsel + isim, sağda liquid glass panel */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            {/* SOL: Logo + Başlık + Developer */}
+            {/* Sol kısım: logo + bilgiler */}
             <div className="flex flex-col items-center md:items-start gap-6">
-              {/* Kare görsel, köşeleri oval */}
-              <div
-                className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-500 hover:scale-105"
-                aria-hidden="false"
-              >
+              <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/assets/images/app-logo.png"
                   alt="2048 App Logo"
@@ -59,7 +75,6 @@ export default function Homepage(): JSX.Element {
                 >
                   2048
                 </a>
-
                 <div className="mt-2">
                   <span className="text-sm text-slate-300 mr-2">Geliştirici</span>
                   <a
@@ -72,22 +87,13 @@ export default function Homepage(): JSX.Element {
                   </a>
                 </div>
               </div>
-
-              {/* Kısa Oyun Açıklaması - özet */}
-              <div className="mt-4 text-sm text-slate-200/85 leading-relaxed max-w-sm">
-                Klasik 2048 bulmaca oyunu şimdi modern bir tasarımla karşınızda!
-                Kaydır, birleştir ve en yüksek sayıya ulaşmaya çalış. Zihnini
-                zorlayan, reflekslerini geliştiren bu eğlenceli sayı
-                bulmacasında kendini test et.
-              </div>
             </div>
 
-            {/* SAĞ: Liquid glass panel - içindeki bölümler hash ile */}
+            {/* Sağ kısım: liquid glass panel */}
             <aside
               className="relative p-1 rounded-3xl"
               aria-label="Navigation panel"
             >
-              {/* Liquid glass container */}
               <div
                 className="backdrop-blur-md bg-white/6 border border-white/10 rounded-3xl p-6 shadow-glass"
                 style={{
@@ -95,152 +101,178 @@ export default function Homepage(): JSX.Element {
                   backdropFilter: "blur(12px)",
                 }}
               >
-                {/* Sekme başlıkları */}
-                <nav className="flex gap-3 mb-4" aria-label="Sections">
+                {/* Sekmeler */}
+                <nav className="flex gap-3 mb-6" aria-label="Sections">
                   <a
                     href="#about"
-                    className="px-3 py-1 rounded-full text-sm font-medium text-slate-200/90 bg-white/3 hover:bg-white/6 transition"
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
+                      activeTab === "about"
+                        ? "bg-white/20 text-white"
+                        : "bg-white/5 text-slate-300 hover:bg-white/10"
+                    }`}
                   >
                     About
                   </a>
                   <a
                     href="#features"
-                    className="px-3 py-1 rounded-full text-sm font-medium text-slate-200/90 bg-white/3 hover:bg-white/6 transition"
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
+                      activeTab === "features"
+                        ? "bg-white/20 text-white"
+                        : "bg-white/5 text-slate-300 hover:bg-white/10"
+                    }`}
                   >
                     Features
                   </a>
                   <a
                     href="#privacy"
-                    className="px-3 py-1 rounded-full text-sm font-medium text-slate-200/90 bg-white/3 hover:bg-white/6 transition"
+                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
+                      activeTab === "privacy"
+                        ? "bg-white/20 text-white"
+                        : "bg-white/5 text-slate-300 hover:bg-white/10"
+                    }`}
                   >
                     Privacy
                   </a>
                 </nav>
 
-                {/* İçerik bölümleri */}
-                <div className="space-y-6">
-                  {/* ABOUT */}
-                  <section id="about" aria-labelledby="about-heading">
-                    <h3
-                      id="about-heading"
-                      className="text-lg font-semibold text-white/95"
-                    >
-                      Hakkında
-                    </h3>
-                    <p className="mt-2 text-sm text-slate-200/80 leading-relaxed">
-                      Klasik 2048 bulmaca oyunu şimdi modern bir tasarımla
-                      karşınızda! Kaydır, birleştir ve en yüksek sayıya ulaşmaya
-                      çalış. Zihnini zorlayan, reflekslerini geliştiren bu
-                      eğlenceli sayı bulmacasında kendini test et.
-                    </p>
-                  </section>
+                {/* İçerik */}
+                <div className="text-sm text-slate-200/85 leading-relaxed max-h-[500px] overflow-y-auto pr-2">
+                  {activeTab === "about" && (
+                    <section>
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Hakkında
+                      </h3>
+                      <p>
+                        Klasik 2048 bulmaca oyunu şimdi modern bir tasarımla
+                        karşınızda! Kaydır, birleştir ve en yüksek sayıya ulaşmaya
+                        çalış. Zihnini zorlayan, reflekslerini geliştiren bu
+                        eğlenceli sayı bulmacasında kendini test et.
+                      </p>
+                    </section>
+                  )}
 
-                  {/* FEATURES */}
-                  <section id="features" aria-labelledby="features-heading">
-                    <h3
-                      id="features-heading"
-                      className="text-lg font-semibold text-white/95"
-                    >
-                      Özellikler
-                    </h3>
-                    <ul className="mt-2 text-sm text-slate-200/80 list-disc ml-5 space-y-1">
-                      <li>Basit ama bağımlılık yapan klasik 2048 deneyimi</li>
-                      <li>Renkli ve modern tasarım</li>
-                      <li>Kolay dokunmatik kontroller</li>
-                      <li>Skor takibi ve offline oynanış</li>
-                      <li>Sonsuz oynanış: 2048&apos;e ulaştıktan sonra devam edebilirsin</li>
-                    </ul>
-                  </section>
+                  {activeTab === "features" && (
+                    <section>
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Özellikler
+                      </h3>
+                      <ul className="list-disc ml-5 space-y-1">
+                        <li>Basit ama bağımlılık yapan klasik 2048 deneyimi</li>
+                        <li>Renkli ve modern tasarım</li>
+                        <li>Kolay dokunmatik kontroller</li>
+                        <li>Skor takibi ve offline oynanış</li>
+                        <li>
+                          Sonsuz oynanış: 2048&apos;e ulaştıktan sonra devam
+                          edebilirsin
+                        </li>
+                      </ul>
+                    </section>
+                  )}
 
-                  {/* PRIVACY */}
-                  <section id="privacy" aria-labelledby="privacy-heading">
-                    <h3
-                      id="privacy-heading"
-                      className="text-lg font-semibold text-white/95"
-                    >
-                      Gizlilik
-                    </h3>
-
-                    <p className="mt-2 text-sm text-slate-200/80 leading-relaxed">
-                      Kullanıcı gizliliğine önem veriyoruz. Uygulama, kişisel
-                      kimlik bilgilerinizi izinsiz toplamaz. Sadece anonim ve
-                      kullanım amaçlı veri toplanabilir (ör. oyun oturum
-                      istatistiği). Üçüncü taraf servisler (reklam, analiz vb.)
-                      kullanılıyorsa, bu servislerin kendi gizlilik politikalarını
-                      incelemenizi tavsiye ederiz.
-                    </p>
-
-                    <h4 className="mt-3 text-sm font-semibold text-white/90">
-                      Toplanan veriler
-                    </h4>
-                    <ul className="mt-2 text-sm text-slate-200/80 list-disc ml-5">
-                      <li>Anonim kullanım verileri (oyun süreleri, skorlar)</li>
-                      <li>Cihaz tipi ve işletim sistemi bilgisi (genel amaçlı)</li>
-                      <li>Konum verisi sadece açık onayla ve sınırlı olarak alınır</li>
-                    </ul>
-
-                    <h4 className="mt-3 text-sm font-semibold text-white/90">
-                      İletişim
-                    </h4>
-                    <p className="mt-2 text-sm text-slate-200/80">
-                      Gizlilik veya veri talepleri için:
-                      <br />
-                      <a
-                        href="mailto:bahozerkek21@gmail.com"
-                        className="text-sky-300 underline"
-                      >
-                        bahozerkek21@gmail.com
-                      </a>
-                    </p>
-                  </section>
+                  {activeTab === "privacy" && (
+                    <section>
+                      <h3 className="text-lg font-semibold text-white mb-3">
+                        Gizlilik Politikası
+                      </h3>
+                      <div className="space-y-4 text-sm text-slate-200/85">
+                        <p>
+                          Bu İnternet sitesini kullanarak kişisel verilerinizin
+                          işlenmesini kabul etmiş olursunuz. Güvenliğiniz bizim için
+                          önemli. Bu sebeple, bizimle paylaşacağınız kişisel
+                          verileriniz hassasiyetle korunmaktadır.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Veri Sorumlusu
+                        </h4>
+                        <p>
+                          Ben, Bahoz, veri sorumlusu olarak, bu gizlilik ve kişisel
+                          verilerin korunması politikası ile ziyaret etmekte
+                          olduğunuz İnternet sitesi kapsamında hangi kişisel
+                          verilerinizin hangi amaçlarla işleneceği, işlenen
+                          verilerin kimlerle ve hangi sebeplerle paylaşılabileceği,
+                          veri işleme yöntemimiz ve hukuki sebepleri ile; işlenen
+                          verilerinize ilişkin haklarınızın neler olduğu hususunda
+                          siz kullanıcılarımızı aydınlatmayı amaçlıyorum.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Toplanan Kişisel Veriler
+                        </h4>
+                        <ul className="list-disc ml-5">
+                          <li>Cihaz bilgileri</li>
+                          <li>E-posta adresi</li>
+                        </ul>
+                        <h4 className="font-semibold text-white">
+                          Kullanılan Servisler
+                        </h4>
+                        <p>
+                          <strong>Analitik ve izleme:</strong> Google Analytics, ziyaretçi
+                          davranışlarını ve site kullanımını analiz etmek için
+                          kullanılmaktadır.
+                          <br />
+                          <strong>Sosyal medya:</strong> Google ile giriş, güvenli kimlik
+                          doğrulama için kullanılmaktadır.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Verilerin İşlenme Amaçları
+                        </h4>
+                        <p>
+                          Kişisel verileriniz, bu İnternet sitesi tarafından
+                          amacına uygun hizmet sunulabilmesi, yasal yükümlülüklerin
+                          yerine getirilmesi, hizmet kalitesinin artırılması,
+                          iletişim, güvenlik ve gerektiğinde yasal merciler ile
+                          bilgi paylaşılabilmesi amaçları ile işlenmektedir.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Verilerin Aktarılması
+                        </h4>
+                        <p>
+                          Toplanan kişisel verileriniz, yasal zorunluluklar haricinde
+                          açık rızanız olmadan üçüncü kişiler ile paylaşılmaz.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Çerez Kullanımı
+                        </h4>
+                        <p>
+                          Bu İnternet sitesi çerez kullanmaktadır. Çerezler, bir
+                          İnternet sayfası ziyaret edildiğinde kullanıcılara ilişkin
+                          birtakım bilgilerin depolanmasına izin verir.
+                        </p>
+                        <h4 className="font-semibold text-white">
+                          Yasal Haklarınız (KVKK & GDPR)
+                        </h4>
+                        <p>
+                          KVKK ve GDPR kapsamında kişisel verilerinizle ilgili erişim,
+                          düzeltme, silme, itiraz ve taşınabilirlik gibi haklara
+                          sahipsiniz.
+                        </p>
+                        <h4 className="font-semibold text-white">İletişim</h4>
+                        <p>
+                          Gizlilik veya veri talepleri için:{" "}
+                          <a
+                            href="mailto:bahozerkek21@gmail.com"
+                            className="text-sky-300 underline"
+                          >
+                            bahozerkek21@gmail.com
+                          </a>
+                        </p>
+                        <p>
+                          Bu politika, 22 Eylül 2025 tarihinde yürürlüğe girmiştir ve
+                          gerektiğinde güncellenir.
+                        </p>
+                      </div>
+                    </section>
+                  )}
                 </div>
               </div>
-
-              {/* İnce alt gölge / accent bar */}
-              <div className="mt-4 h-1 w-full rounded-full bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400 opacity-80" />
             </aside>
           </div>
-
-          {/* ALT: Küçük footer / aksiyonlar */}
-          <footer className="mt-10 text-center text-sm text-slate-300/85">
-            <div className="inline-flex gap-4 items-center">
-              <a
-                href={gameUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg bg-white/6 hover:bg-white/10 transition text-white/95"
-              >
-                Oyunu İndir
-              </a>
-
-              <a
-                href={developerUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-4 py-2 rounded-lg border border-white/8 hover:bg-white/6 transition text-white/95"
-              >
-                Geliştirici Sayfası
-              </a>
-            </div>
-
-            <p className="mt-4 text-xs text-slate-400">
-              © {new Date().getFullYear()} Bahoz — Tüm hakları saklıdır
-            </p>
-          </footer>
         </div>
       </main>
 
-      {/* Küçük stiller (Tailwind dışında bir şey gerekiyorsa buraya eklenir) */}
       <style jsx>{`
-        /* Hafif floating animasyon ve glass gölgesi */
         .shadow-glass {
           box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
         }
-        a:focus {
-          outline: 2px solid rgba(99, 102, 241, 0.6);
-          outline-offset: 4px;
-        }
-        /* Smooth scroll for anchors */
         html {
           scroll-behavior: smooth;
         }
