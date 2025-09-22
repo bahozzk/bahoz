@@ -2,12 +2,20 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
+const [updates, setUpdates] = useState<any>(null);
+
+useEffect(() => {
+  fetch("/api/updates")
+    .then((res) => res.json())
+    .then((data) => setUpdates(data));
+}, []);
+
 const Homepage = () => {
   const [activeTab, setActiveTab] = useState("about");
 
   const tabs = [
     { id: "about", label: "Hakkında" },
-    { id: "features", label: "Özellikler" },
+    { id: "updates", label: "Güncellemeler" },
     { id: "privacy", label: "Gizlilik" },
   ];
 
@@ -137,23 +145,19 @@ const Homepage = () => {
               </motion.div>
             )}
 
-            {activeTab === "features" && (
-              <motion.div
-                key="features"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="text-white/90 leading-relaxed space-y-4"
-              >
-                <h2 className="text-2xl font-bold">Features</h2>
-                <p>
-                  Oyunun teknik detaylarını, grafiklerini ve sürüm notlarını
-                  buraya ekleyebilirsin.
-                </p>
-              </motion.div>
-            )}
-
+            {activeTab === "updates" && (
+  <div className="space-y-2 text-white/80">
+    {updates ? (
+      <>
+        <p><strong>Son Güncelleme:</strong> {updates.lastUpdate}</p>
+        <p><strong>Sürüm:</strong> {updates.version}</p>
+        <p>{updates.changes}</p>
+      </>
+    ) : (
+      <p>Güncellemeler yükleniyor...</p>
+    )}
+  </div>
+)}
             {activeTab === "privacy" && (
               <motion.div
                 key="privacy"
