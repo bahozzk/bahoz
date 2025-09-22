@@ -15,8 +15,7 @@ const Homepage = () => {
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10">
       {/* Kart - Liquid Glass */}
       <div className="relative w-full max-w-3xl p-6 rounded-2xl 
-    bg-gradient-to-br from-white/30 to-white/10 
-    backdrop-blur-xl 
+    bg-transparent backdrop-blur-xl 
     shadow-2xl 
     border border-white/20 
     ring-1 ring-white/40">
