@@ -58,7 +58,7 @@ const Homepage = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-xl font-medium transition-all
+              className={`px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95
   ${activeTab === tab.id
     ? "bg-transparent backdrop-blur-md border border-white/30 text-white shadow-lg ring-1 ring-white/40"
     : "bg-transparent backdrop-blur-sm border border-white/20 text-white/70 hover:text-white hover:backdrop-blur-md hover:border-white/40"}
