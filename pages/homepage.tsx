@@ -15,6 +15,16 @@ const Homepage = () => {
       .catch((err) => console.error("Güncellemeler yüklenemedi:", err));
   }, []);
 
+  // ✅ Hash desteği
+  useEffect(() => {
+    if (window.location.hash) {
+      const tab = window.location.hash.replace("#", "");
+      if (["about", "updates", "privacy"].includes(tab)) {
+        setActiveTab(tab);
+      }
+    }
+  }, []);
+
   const tabs = [
     { id: "about", label: "Hakkında" },
     { id: "updates", label: "Güncellemeler" },
@@ -69,7 +79,10 @@ const Homepage = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                window.location.hash = tab.id; // ✅ Hash güncelleme
+              }}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95
   ${activeTab === tab.id
     ? "bg-transparent backdrop-blur-md border border-white/30 text-white shadow-lg ring-1 ring-white/40"
