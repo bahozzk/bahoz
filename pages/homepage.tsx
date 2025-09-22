@@ -12,7 +12,7 @@ const Homepage = () => {
     { id: "privacy", label: "Gizlilik" },
   ];
 
-  // Sayfa yüklendiğinde URL hash kontrolü
+  // ✅ Hash desteği için eklenen useEffect
   useEffect(() => {
     if (window.location.hash) {
       const tab = window.location.hash.replace("#", "");
@@ -22,17 +22,11 @@ const Homepage = () => {
     }
   }, []);
 
-  // Güncellemeleri çek
   useEffect(() => {
     fetch("/api/updates")
       .then((res) => res.json())
       .then((data) => setUpdates(data));
   }, []);
-
-  const handleTabChange = (id: string) => {
-    setActiveTab(id);
-    window.location.hash = id; // URL’de hash değişsin
-  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-900 via-indigo-900 to-black p-6">
@@ -80,7 +74,10 @@ const Homepage = () => {
           {tabs.map((tab) => (
             <button
               key={tab.id}
-              onClick={() => handleTabChange(tab.id)}
+              onClick={() => {
+                setActiveTab(tab.id);
+                window.location.hash = tab.id; // ✅ Hash güncelleme
+              }}
               className={`px-6 py-2 rounded-full font-medium transition-all duration-300 hover:scale-105 active:scale-95 ${
                 activeTab === tab.id
                   ? "bg-transparent backdrop-blur-md border border-white/30 text-white shadow-lg ring-1 ring-white/40"
