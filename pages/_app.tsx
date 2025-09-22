@@ -6,7 +6,6 @@ import { Analytics } from "@vercel/analytics/react";
 import type { PageProps } from "../types";
 import Head from "next/head";
 import Script from "next/script";
-import Image from "next/image";
 
 config.autoAddCss = false;
 
@@ -73,19 +72,15 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
       {/* End Buy Me a Coffee Widget */}
 
       {/* Arka Plan + İçerik */}
-      <div style={{ position: "relative", minHeight: "100vh" }}>
-        <Image
-          src="/assets/images/arkaplan.png"
-          alt="Background Image"
-          layout="fill"
-          objectFit="cover"
-          quality={100}
-          priority
-          style={{ zIndex: -1 }} // 👈 Görseller arkada
-        />
-        <div style={{ position: "relative", zIndex: 1 }}>
-          <Component {...pageProps} />
-        </div>
+      <div
+        style={{
+          minHeight: "100vh",
+          backgroundImage: "url('/assets/images/arkaplan.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <Component {...pageProps} />
       </div>
 
       <Analytics />
