@@ -1,181 +1,166 @@
-// pages/homepage.tsx
-import { useEffect, useState } from "react";
-import Head from "next/head";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-export default function Homepage(): JSX.Element {
-  const developerUrl =
-    "https://play.google.com/store/apps/dev?id=7998220962786097995";
-  const gameUrl =
-    "https://play.google.com/store/apps/details?id=com.bahoz.game2048";
-
+const Homepage = () => {
   const [activeTab, setActiveTab] = useState("about");
 
-  // Hash değişimini izle
-  useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash.replace("#", "");
-      if (hash) {
-        setActiveTab(hash);
-      } else {
-        setActiveTab("about");
-      }
-    };
-
-    handleHashChange();
-    window.addEventListener("hashchange", handleHashChange);
-
-    return () => {
-      window.removeEventListener("hashchange", handleHashChange);
-    };
-  }, []);
+  const tabs = [
+    { id: "about", label: "About" },
+    { id: "features", label: "Features" },
+    { id: "privacy", label: "Privacy" },
+  ];
 
   return (
-    <>
-      <Head>
-        <title>2048 — Bahoz</title>
-        <meta
-          name="description"
-          content="2048 oyunu — klasik sayı bulmacası, modern tasarım. Bahoz tarafından geliştirildi."
-        />
-      </Head>
+    <div className="flex flex-col items-center justify-center min-h-screen px-4 py-10">
+      {/* Kart - Liquid Glass */}
+      <div className="relative w-full max-w-3xl p-6 rounded-2xl bg-white/20 backdrop-blur-md shadow-xl border border-white/30">
+        {/* Üst Kısım: Logo + İsim + Geliştirici */}
+        <div className="flex flex-col items-center mb-6">
+          <Image
+            src="/assets/images/app-logo.png"
+            alt="App Logo"
+            width={120}
+            height={120}
+            className="rounded-2xl shadow-lg"
+          />
+          <h1
+            className="mt-4 text-3xl font-bold text-white cursor-pointer hover:underline"
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/details?id=com.yourgameid",
+                "_blank"
+              )
+            }
+          >
+            2048 Puzzle
+          </h1>
+          <p
+            className="mt-1 text-lg text-white/90 cursor-pointer hover:underline"
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/dev?id=YOUR_DEV_ID",
+                "_blank"
+              )
+            }
+          >
+            Bahoz
+          </p>
+        </div>
 
-      <main className="min-h-screen flex items-center justify-center px-6 py-12">
-        <div className="w-full max-w-5xl">
-          {/* Üst header */}
-          <header className="mb-8 text-center">
-            <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight drop-shadow-lg">
-              2048
-            </h1>
-            <p className="mt-2 text-sm text-slate-200/80">
-              Klasik 2048 bulmacası — modern tasarım ile.
-            </p>
-          </header>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-            {/* Sol kısım: logo + bilgiler */}
-            <div className="flex flex-col items-center md:items-start gap-6">
-              <div className="w-48 h-48 rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/assets/images/app-logo.png"
-                  alt="2048 App Logo"
-                  width={384}
-                  height={384}
-                  className="object-cover w-full h-full"
-                  priority
-                />
-              </div>
-
-              <div className="text-center md:text-left">
-                <a
-                  href={gameUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block text-2xl font-semibold text-white hover:underline"
-                >
-                  2048
-                </a>
-                <div className="mt-2">
-                  <span className="text-sm text-slate-300 mr-2">Geliştirici</span>
-                  <a
-                    href={developerUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-white/90 underline"
-                  >
-                    Bahoz
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* Sağ kısım: liquid glass panel */}
-            <aside
-              className="relative p-1 rounded-3xl"
-              aria-label="Navigation panel"
+        {/* Sekmeler */}
+        <div className="flex justify-center gap-6 mb-6">
+          {tabs.map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`px-4 py-2 rounded-xl font-medium transition-all ${
+                activeTab === tab.id
+                  ? "bg-white/30 text-white shadow-md"
+                  : "text-white/70 hover:text-white hover:bg-white/20"
+              }`}
             >
-              <div
-                className="backdrop-blur-md bg-white/6 border border-white/10 rounded-3xl p-6 shadow-glass"
-                style={{
-                  WebkitBackdropFilter: "blur(12px)",
-                  backdropFilter: "blur(12px)",
-                }}
+              {tab.label}
+            </button>
+          ))}
+        </div>
+
+        {/* İçerik */}
+        <div className="relative min-h-[300px]">
+          <AnimatePresence mode="wait">
+            {activeTab === "about" && (
+              <motion.div
+                key="about"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="text-white/90 leading-relaxed space-y-4"
               >
-                {/* Sekmeler */}
-                <nav className="flex gap-3 mb-6" aria-label="Sections">
-                  <a
-                    href="#about"
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
-                      activeTab === "about"
-                        ? "bg-white/20 text-white"
-                        : "bg-white/5 text-slate-300 hover:bg-white/10"
-                    }`}
-                  >
-                    About
-                  </a>
-                  <a
-                    href="#features"
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
-                      activeTab === "features"
-                        ? "bg-white/20 text-white"
-                        : "bg-white/5 text-slate-300 hover:bg-white/10"
-                    }`}
-                  >
-                    Features
-                  </a>
-                  <a
-                    href="#privacy"
-                    className={`px-3 py-1 rounded-full text-sm font-medium transition ${
-                      activeTab === "privacy"
-                        ? "bg-white/20 text-white"
-                        : "bg-white/5 text-slate-300 hover:bg-white/10"
-                    }`}
-                  >
-                    Privacy
-                  </a>
-                </nav>
+                <p>
+                  Klasik 2048 bulmaca oyunu şimdi modern bir tasarımla
+                  karşınızda!  
+                  Kaydır, birleştir ve en yüksek sayıya ulaşmaya çalış. Zihnini
+                  zorlayan, reflekslerini geliştiren bu eğlenceli sayı
+                  bulmacasında kendini test et.
+                </p>
 
-                {/* İçerik */}
-                <div className="text-sm text-slate-200/85 leading-relaxed max-h-[500px] overflow-y-auto pr-2">
-                  {activeTab === "about" && (
-                    <section>
-                      <h3 className="text-lg font-semibold text-white mb-3">
-                        Hakkında
-                      </h3>
-                      <p>
-                        Klasik 2048 bulmaca oyunu şimdi modern bir tasarımla
-                        karşınızda! Kaydır, birleştir ve en yüksek sayıya ulaşmaya
-                        çalış. Zihnini zorlayan, reflekslerini geliştiren bu
-                        eğlenceli sayı bulmacasında kendini test et.
-                      </p>
-                    </section>
-                  )}
+                <h3 className="text-xl font-semibold">🎮 Nasıl Oynanır?</h3>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>
+                    Tahtadaki kutucukları kaydırarak aynı sayıları birleştir.
+                  </li>
+                  <li>2+2 = 4, 4+4 = 8... derken hedefin 2048&apos;e ulaşmak!</li>
+                  <li>
+                    Her hamlede yeni bir kutucuk belirir. Stratejini iyi
+                    kurmalısın.
+                  </li>
+                  <li>
+                    Oyun tahtası dolmadan en yüksek puanı yapmaya çalış.
+                  </li>
+                </ul>
 
-                  {activeTab === "features" && (
-                    <section>
-                      <h3 className="text-lg font-semibold text-white mb-3">
-                        Özellikler
-                      </h3>
-                      <ul className="list-disc ml-5 space-y-1">
-                        <li>Basit ama bağımlılık yapan klasik 2048 deneyimi</li>
-                        <li>Renkli ve modern tasarım</li>
-                        <li>Kolay dokunmatik kontroller</li>
-                        <li>Skor takibi ve offline oynanış</li>
-                        <li>
-                          Sonsuz oynanış: 2048&apos;e ulaştıktan sonra devam
-                          edebilirsin
-                        </li>
-                      </ul>
-                    </section>
-                  )}
+                <h3 className="text-xl font-semibold">✨ Özellikler:</h3>
+                <ul className="list-disc pl-6 space-y-1">
+                  <li>Basit ama bağımlılık yapan klasik 2048 deneyimi</li>
+                  <li>Renkli ve modern tasarım</li>
+                  <li>Kolay dokunmatik kontroller</li>
+                  <li>İlerlemeni takip eden skor sistemi</li>
+                  <li>
+                    Sonsuz oynanış: 2048&apos;e ulaştığında oyun bitmez, daha
+                    yüksek sayılara devam edebilirsin
+                  </li>
+                  <li>İnternetsiz oynanabilir (offline mod)</li>
+                </ul>
 
-                  {activeTab === "privacy" && (
-                    <section>
-                      <h3 className="text-lg font-semibold text-white mb-3">
-                        Gizlilik Politikası
-                      </h3>
-                      <div className="space-y-4 text-sm text-slate-200/85">
-                        <p>
+                <h3 className="text-xl font-semibold">🏆 Rekabet ve Eğlence:</h3>
+                <p>
+                  Kendi rekorunu kır, arkadaşlarınla skorlarını kıyasla ve daha
+                  yüksek sayılara ulaşmak için stratejini geliştir. Her oyun yeni
+                  bir meydan okuma!
+                </p>
+
+                <p>
+                  2048, hem hızlı oynanabilecek bir oyun arıyorsan hem de
+                  strateji ve sabır gerektiren bir bulmaca istiyorsan tam sana
+                  göre. İster boş zamanlarında birkaç hamle yap, ister saatlerce
+                  oynayarak rekorunu geliştir.
+                </p>
+
+                <p className="font-semibold">
+                  Şimdi indir, 2048 macerana başla!
+                </p>
+              </motion.div>
+            )}
+
+            {activeTab === "features" && (
+              <motion.div
+                key="features"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="text-white/90 leading-relaxed space-y-4"
+              >
+                <h2 className="text-2xl font-bold">Features</h2>
+                <p>
+                  Oyunun teknik detaylarını, grafiklerini ve sürüm notlarını
+                  buraya ekleyebilirsin.
+                </p>
+              </motion.div>
+            )}
+
+            {activeTab === "privacy" && (
+              <motion.div
+                key="privacy"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="text-white/90 leading-relaxed space-y-4"
+              >
+                <h2 className="text-2xl font-bold">Gizlilik Politikası</h2>
+                <p>
                           Bu İnternet sitesini kullanarak kişisel verilerinizin
                           işlenmesini kabul etmiş olursunuz. Güvenliğiniz bizim için
                           önemli. Bu sebeple, bizimle paylaşacağınız kişisel
@@ -258,25 +243,15 @@ export default function Homepage(): JSX.Element {
                         <p>
                           Bu politika, 22 Eylül 2025 tarihinde yürürlüğe girmiştir ve
                           gerektiğinde güncellenir.
-                        </p>
-                      </div>
-                    </section>
-                  )}
-                </div>
-              </div>
-            </aside>
-          </div>
+                        </p> 
+                {/* Buraya senin uzun gizlilik politikası metnini ekle */}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </main>
-
-      <style jsx>{`
-        .shadow-glass {
-          box-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-        }
-        html {
-          scroll-behavior: smooth;
-        }
-      `}</style>
-    </>
+      </div>
+    </div>
   );
-}
+};
+
+export default Homepage;
