@@ -6,9 +6,9 @@ const Homepage = () => {
   const [activeTab, setActiveTab] = useState("about");
 
   const tabs = [
-    { id: "about", label: "About" },
-    { id: "features", label: "Features" },
-    { id: "privacy", label: "Privacy" },
+    { id: "about", label: "Hakkında" },
+    { id: "features", label: "Özellikler" },
+    { id: "privacy", label: "Gizlilik" },
   ];
 
   return (
@@ -58,11 +58,11 @@ const Homepage = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`px-4 py-2 rounded-xl font-medium transition-all ${
-                activeTab === tab.id
-                  ? "bg-white/30 text-white shadow-md"
-                  : "text-white/70 hover:text-white hover:bg-white/20"
-              }`}
+              className={`px-4 py-2 rounded-xl font-medium transition-all
+  ${activeTab === tab.id
+    ? "bg-transparent backdrop-blur-md border border-white/30 text-white shadow-lg ring-1 ring-white/40"
+    : "bg-transparent backdrop-blur-sm border border-white/20 text-white/70 hover:text-white hover:backdrop-blur-md hover:border-white/40"}
+`}
             >
               {tab.label}
             </button>
