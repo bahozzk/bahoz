@@ -1,11 +1,21 @@
-// Google Analytics tracking utilities
+// Google Analytics & Tag Manager tracking utilities
 export const GA_MEASUREMENT_ID = 'G-MTN77PVVGX';
+export const GTM_ID = 'GTM-MP5FWJ5F';
 
-// Track page views
+// Track page views (works with both GA and GTM)
 export const pageview = (url: string) => {
+  // Google Analytics
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('config', GA_MEASUREMENT_ID, {
       page_path: url,
+    });
+  }
+  
+  // Google Tag Manager
+  if (typeof window !== 'undefined' && (window as any).dataLayer) {
+    (window as any).dataLayer.push({
+      event: 'pageview',
+      page: url,
     });
   }
 };
@@ -22,11 +32,22 @@ export const event = ({
   label: string;
   value?: number;
 }) => {
+  // Google Analytics
   if (typeof window !== 'undefined' && (window as any).gtag) {
     (window as any).gtag('event', action, {
       event_category: category,
       event_label: label,
       value: value,
+    });
+  }
+  
+  // Google Tag Manager
+  if (typeof window !== 'undefined' && (window as any).dataLayer) {
+    (window as any).dataLayer.push({
+      event: action,
+      eventCategory: category,
+      eventLabel: label,
+      eventValue: value,
     });
   }
 };

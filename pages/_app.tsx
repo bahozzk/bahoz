@@ -51,7 +51,23 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
         <title>BahozzK</title>
       </Head>
 
-      {/* Google Analytics - Enhanced */}
+      {/* Google Tag Manager - Head */}
+      <Script
+        id="google-tag-manager"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MP5FWJ5F');
+          `,
+        }}
+      />
+      {/* End Google Tag Manager */}
+
+      {/* Google Analytics - Enhanced (Backup/Fallback) */}
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
@@ -89,6 +105,17 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
         strategy="lazyOnload"
       />
       {/* End Buy Me a Coffee Widget */}
+
+      {/* Google Tag Manager (noscript) - Body */}
+      <noscript>
+        <iframe 
+          src="https://www.googletagmanager.com/ns.html?id=GTM-MP5FWJ5F"
+          height="0" 
+          width="0" 
+          style={{display: 'none', visibility: 'hidden'}}
+        />
+      </noscript>
+      {/* End Google Tag Manager (noscript) */}
 
       {/* Arka Plan + İçerik */}
       <div
