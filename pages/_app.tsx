@@ -6,10 +6,27 @@ import { Analytics } from "@vercel/analytics/react";
 import type { PageProps } from "../types";
 import Head from "next/head";
 import Script from "next/script";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { pageview, GA_MEASUREMENT_ID } from "../lib/gtag";
 
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
+  const router = useRouter();
+
+  // Track page views on route change
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <>
       <Head>
@@ -34,10 +51,10 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
         <title>BahozzK</title>
       </Head>
 
-      {/* Google Analytics */}
+      {/* Google Analytics - Enhanced */}
       <Script
         strategy="afterInteractive"
-        src="https://www.googletagmanager.com/gtag/js?id=G-MTN77PVVGX"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
       />
       <Script
         id="google-analytics"
@@ -47,23 +64,25 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-MTN77PVVGX', {
+            gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
+              send_page_view: true,
+              anonymize_ip: true,
             });
           `,
         }}
       />
       {/* End Google Analytics */}
 
-      {/* Buy Me a Coffee Widget */}
+      {/* Buy Me a Coffee Widget - Official Code */}
       <Script
-        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
         data-name="BMC-Widget"
         data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
         data-id="bahoz"
         data-description="Support me on Buy me a coffee!"
         data-message=""
-        data-color="#FF5F5F"
+        data-color="#BD5FFF"
         data-position="Right"
         data-x_margin="18"
         data-y_margin="18"

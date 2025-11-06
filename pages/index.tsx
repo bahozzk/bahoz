@@ -9,19 +9,21 @@ import Footer from '../components/Footer';
 
 const Home: NextPage = (pageProps: PageProps): JSX.Element => {
   return (
-    <div className='block'>
-      <div className="after:content-[''] after:absolute after:w-full after:h-screen
-  after:bg-gradient-to-b after:from-black/60 after:to-black/100
-  absolute bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center bg-fixed w-full h-screen">
+    <div className='relative min-h-screen'>
+      {/* Background Image with Subtle Overlay */}
+      <div className="fixed top-0 left-0 w-full h-full z-0">
+        <div className="absolute w-full h-full bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center bg-fixed"></div>
+        <div className="absolute w-full h-full bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
       </div>
-      <div className='absolute w-full'>
 
+      {/* Content */}
+      <div className='relative z-10'>
         <Hero />
-        <AboutMe />
-        <Organizations />
+        <div id="projects">
+          <Organizations />
+        </div>
         <Techs />
         <Footer />
-        
       </div>
     </div>
   );
