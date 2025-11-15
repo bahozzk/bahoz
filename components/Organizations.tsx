@@ -28,21 +28,21 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                 </div>
 
                 {/* Organizations Grid */}
-                <div className='grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto'>
+                <div className='grid grid-cols-1 gap-4 sm:gap-6 max-w-3xl mx-auto'>
                     {organizations.map((data, index) => (
                         <a 
                             key={`org${index}`}
                             target={'_blank'} 
                             rel="noopener noreferrer" 
                             href={data.href}
-                            className='group block'
+                            className='group block w-full'
                             onClick={() => trackExternalLink(data.href)}
                         >
-                            <div className='glass-card p-6 sm:p-8 h-full transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1'>
-                                <div className='flex flex-col sm:flex-row gap-4 sm:gap-6'>
+                            <div className='glass-card p-5 sm:p-6 md:p-8 h-full transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1'>
+                                <div className='flex flex-row items-start gap-4 sm:gap-5 md:gap-6'>
                                     {/* Icon Container - Left Aligned */}
                                     <div 
-                                        className='flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden p-2 transition-transform duration-500 group-hover:scale-105 mx-auto sm:mx-0'
+                                        className='flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl overflow-hidden p-1.5 sm:p-2 transition-transform duration-500 group-hover:scale-105'
                                         style={{
                                             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%)',
                                             backdropFilter: 'blur(40px) saturate(180%)',
@@ -62,19 +62,19 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                                     </div>
 
                                     {/* Text Content - Right Side */}
-                                    <div className='flex-1 flex flex-col justify-between space-y-3 text-center sm:text-left'>
+                                    <div className='flex-1 flex flex-col justify-center space-y-2 sm:space-y-2.5 md:space-y-3 min-w-0'>
                                         {/* Title */}
-                                        <h3 className='font-bold text-xl sm:text-2xl text-white/95 group-hover:text-white transition-colors duration-300 flex items-center justify-center sm:justify-start gap-2'>
-                                            {data.title}
+                                        <h3 className='font-bold text-lg sm:text-xl md:text-2xl text-white/95 group-hover:text-white transition-colors duration-300 flex items-center gap-2'>
+                                            <span className='truncate'>{data.title}</span>
                                             <FontAwesomeIcon 
                                                 icon={faArrowUpRightFromSquare} 
-                                                className='text-xs sm:text-sm opacity-40 group-hover:opacity-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300'
+                                                className='text-xs sm:text-sm opacity-40 group-hover:opacity-90 group-hover:translate-x-1 group-hover:-translate-y-1 transition-all duration-300 flex-shrink-0'
                                             />
                                         </h3>
                                         
                                         {/* Position */}
                                         <p 
-                                            className='text-xs sm:text-sm font-semibold tracking-wider uppercase px-3 py-1 rounded-full inline-block self-center sm:self-start'
+                                            className='text-xs sm:text-sm font-semibold tracking-wider uppercase px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full inline-block self-start'
                                             style={{
                                                 background: 'rgba(255, 255, 255, 0.05)',
                                                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -85,14 +85,14 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                                         </p>
 
                                         {/* Description */}
-                                        <p className='text-white/60 text-xs sm:text-sm leading-relaxed'>
+                                        <p className='text-white/60 text-xs sm:text-sm leading-relaxed line-clamp-2 sm:line-clamp-none'>
                                             {data.description}
                                         </p>
                                     </div>
                                 </div>
 
                                 {/* Bottom Hover Line */}
-                                <div className='w-0 group-hover:w-full h-0.5 bg-white/20 rounded-full transition-all duration-700 mt-4 sm:mt-6'></div>
+                                <div className='w-0 group-hover:w-full h-0.5 bg-white/20 rounded-full transition-all duration-700 mt-4 sm:mt-5 md:mt-6'></div>
                             </div>
                         </a>
                     ))}
