@@ -6,15 +6,19 @@ import Image from 'next/image';
 import { trackExternalLink } from '../lib/gtag';
 
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
-    const organizations = [
-        {
-            title: 'IvyMC Towny',
-            href: 'https://ivymc.net',
-            position: 'Founder',
-            description: 'A Minecraft server focused on community building and town management.',
-            iconPath: '/assets/images/sapka.png'  
-        }
-    ];
+    // Organizations array - temporarily empty
+    const organizations: Array<{
+        title: string;
+        href: string;
+        position: string;
+        description: string;
+        iconPath: string;
+    }> = [];
+
+    // Component is hidden when there are no organizations
+    if (organizations.length === 0) {
+        return <></>;
+    }
 
     return (
         <div className='py-16 sm:py-24 px-4 sm:px-6 w-full flex flex-col items-center'>
