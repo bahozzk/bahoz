@@ -30,6 +30,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: '/ivymc',
+        destination: 'https://forms.gle/jMcozyZbnHTUodtw5',
+        permanent: true,
+      },
+      {
         source: '/youtube',
         destination: 'https://www.youtube.com/@BahozK',
         permanent: true,
