@@ -19,7 +19,7 @@ const Homepage = () => {
   useEffect(() => {
     if (window.location.hash) {
       const tab = window.location.hash.replace("#", "");
-      if (["about", "updates", "privacy"].includes(tab)) {
+      if (["about", "updates"].includes(tab)) {
         setActiveTab(tab);
       }
     }
@@ -28,7 +28,6 @@ const Homepage = () => {
   const tabs = [
     { id: "about", label: "Hakkında" },
     { id: "updates", label: "Güncellemeler" },
-    { id: "privacy", label: "Gizlilik" },
   ];
 
   return (
@@ -185,87 +184,6 @@ const Homepage = () => {
               </motion.div>
             )}
 
-            {activeTab === "privacy" && (
-              <motion.div
-                key="privacy"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.4 }}
-                className="text-white/90 leading-relaxed space-y-4"
-              >
-                <h2 className="text-2xl font-bold">Gizlilik Politikası</h2>
-                <p>
-                  Bu İnternet sitesini kullanarak kişisel verilerinizin işlenmesini
-                  kabul etmiş olursunuz. Güvenliğiniz bizim için önemli. Bu sebeple,
-                  bizimle paylaşacağınız kişisel verileriniz hassasiyetle
-                  korunmaktadır.
-                </p>
-                <h4 className="font-semibold text-white">Veri Sorumlusu</h4>
-                <p>
-                  Ben, Bahoz, veri sorumlusu olarak, bu gizlilik ve kişisel
-                  verilerin korunması politikası ile ziyaret etmekte olduğunuz
-                  İnternet sitesi kapsamında hangi kişisel verilerinizin hangi
-                  amaçlarla işleneceği, işlenen verilerin kimlerle ve hangi
-                  sebeplerle paylaşılabileceği, veri işleme yöntemimiz ve hukuki
-                  sebepleri ile; işlenen verilerinize ilişkin haklarınızın neler
-                  olduğu hususunda siz kullanıcılarımızı aydınlatmayı
-                  amaçlıyorum.
-                </p>
-                <h4 className="font-semibold text-white">Toplanan Kişisel Veriler</h4>
-                <ul className="list-disc ml-5">
-                  <li>Cihaz bilgileri</li>
-                  <li>E-posta adresi</li>
-                </ul>
-                <h4 className="font-semibold text-white">Kullanılan Servisler</h4>
-                <p>
-                  <strong>Analitik ve izleme:</strong> Google Analytics, ziyaretçi
-                  davranışlarını ve site kullanımını analiz etmek için
-                  kullanılmaktadır.
-                  <br />
-                  <strong>Sosyal medya:</strong> Google ile giriş, güvenli kimlik
-                  doğrulama için kullanılmaktadır.
-                </p>
-                <h4 className="font-semibold text-white">Verilerin İşlenme Amaçları</h4>
-                <p>
-                  Kişisel verileriniz, bu İnternet sitesi tarafından amacına uygun
-                  hizmet sunulabilmesi, yasal yükümlülüklerin yerine getirilmesi,
-                  hizmet kalitesinin artırılması, iletişim, güvenlik ve gerektiğinde
-                  yasal merciler ile bilgi paylaşılabilmesi amaçları ile
-                  işlenmektedir.
-                </p>
-                <h4 className="font-semibold text-white">Verilerin Aktarılması</h4>
-                <p>
-                  Toplanan kişisel verileriniz, yasal zorunluluklar haricinde açık
-                  rızanız olmadan üçüncü kişiler ile paylaşılmaz.
-                </p>
-                <h4 className="font-semibold text-white">Çerez Kullanımı</h4>
-                <p>
-                  Bu İnternet sitesi çerez kullanmaktadır. Çerezler, bir İnternet
-                  sayfası ziyaret edildiğinde kullanıcılara ilişkin birtakım
-                  bilgilerin depolanmasına izin verir.
-                </p>
-                <h4 className="font-semibold text-white">Yasal Haklarınız (KVKK & GDPR)</h4>
-                <p>
-                  KVKK ve GDPR kapsamında kişisel verilerinizle ilgili erişim,
-                  düzeltme, silme, itiraz ve taşınabilirlik gibi haklara sahipsiniz.
-                </p>
-                <h4 className="font-semibold text-white">İletişim</h4>
-                <p>
-                  Gizlilik veya veri talepleri için:{" "}
-                  <a
-                    href="mailto:bahozerkek21@gmail.com"
-                    className="text-sky-300 underline"
-                  >
-                    bahozerkek21@gmail.com
-                  </a>
-                </p>
-                <p>
-                  Bu politika, 22 Eylül 2025 tarihinde yürürlüğe girmiştir ve
-                  gerektiğinde güncellenir.
-                </p>
-              </motion.div>
-            )}
           </AnimatePresence>
         </div>
       </div>
