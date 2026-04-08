@@ -49,7 +49,7 @@ export default function DeleteAccountPage(): JSX.Element {
                 href="mailto:destek.pomolofi@gmail.com"
                 className="mt-3 inline-block text-sm font-medium text-violet-300 underline underline-offset-4 transition hover:text-violet-200 sm:text-base"
               >
-                destek.pomolofi@gmail.com
+                bahozerkek21@gmail.com
               </a>
             </article>
           </div>
