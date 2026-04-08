@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage(): JSX.Element {
               <h2>Contact Us</h2>
               <p>
                 For privacy questions, requests, or complaints, contact us at{" "}
-                <a href="mailto:support@pomolofi.com">[support@pomolofi.com]</a>.
+                <a href="mailto:support@pomolofi.com">[bahozerkek21@gmail.com]</a>.
               </p>
             </section>
           </article>
