@@ -5,6 +5,7 @@ const sections = [
   { id: "data-collection", label: "Data Collection" },
   { id: "ads", label: "Ads & AdMob" },
   { id: "subscriptions", label: "Subscriptions & Billing" },
+  { id: "third-party-services", label: "Third-Party Services" },
   { id: "security", label: "Data Security" },
   { id: "children", label: "Children's Privacy" },
   { id: "rights", label: "GDPR & CCPA Rights" },
@@ -103,6 +104,20 @@ export default function PrivacyPolicyPage(): JSX.Element {
                 transactions are processed by Google Play. We do not collect or
                 store raw credit card numbers or full payment card details on
                 our servers.
+              </p>
+            </section>
+
+            <section id="third-party-services">
+              <h2>Third-Party Services</h2>
+              <p>
+                PomoLofi uses third-party services including Google Play
+                Services &amp; Billing, Google AdMob, and Firebase
+                Authentication to provide core app functionality and monetization.
+              </p>
+              <p>
+                For account management, we collect and process email addresses
+                through Firebase Authentication (for example, sign-in and account
+                recovery).
               </p>
             </section>
 
