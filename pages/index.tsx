@@ -11,11 +11,14 @@ import { useState } from 'react';
 import DonationBanner from '../components/DonationBanner';
 import DonationModal from '../components/DonationModal';
 
+import LanguageSwitcher from '../components/LanguageSwitcher';
+
 const Home: NextPage = (pageProps: PageProps): JSX.Element => {
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
   return (
     <div className='relative min-h-screen'>
+      <LanguageSwitcher />
       {/* Background Image with Subtle Overlay */}
       <div className="fixed top-0 left-0 w-full h-full z-0">
         <div className="absolute w-full h-full bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center bg-fixed"></div>

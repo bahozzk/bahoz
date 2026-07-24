@@ -5,8 +5,12 @@ import type { PageProps } from '../types';
 import Image from 'next/image';
 import { trackExternalLink } from '../lib/gtag';
 
+import { useLanguage } from '../lib/LanguageContext';
+
 const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
-    // Organizations array - temporarily empty
+    const { t } = useLanguage();
+
+    // Organizations array
     const organizations: Array<{
         title: string;
         href: string;
@@ -18,14 +22,14 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
             title: "WGTF 2026 Project",
             href: "https://wgtf.bahoz.dev",
             position: "Developer / Creator",
-            description: "A digital experience and website created as a submission for the Maison des Jeunes contest for the WGTF 2026 hip-hop festival by Nextape.",
+            description: t('wgtfDesc'),
             iconPath: "https://github.com/bahozzk.png"
         },
         {
             title: "IvyMC",
             href: "https://ivymc.bahoz.dev",
             position: "Creator",
-            description: "IvyMC sunucusunda ikliminizi seçin ve dünyanızı inşa edin! Vahşi dünyada yaratıklarla savaşın!",
+            description: t('ivymcDesc'),
             iconPath: "https://github.com/ivy-mc.png"
         }
     ];
@@ -46,7 +50,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                             className='absolute inset-0 z-0 text-4xl sm:text-5xl md:text-4xl font-bold mb-4 text-white blur-md opacity-60'
                             aria-hidden="true"
                         >
-                            What Am I Doing?
+                            {t('whatAmIDoing')}
                         </h2>
                         {/* Main Gradient Text */}
                         <h2 
@@ -58,7 +62,7 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                                 WebkitTextFillColor: 'transparent'
                             }}
                         >
-                            What Am I Doing?
+                            {t('whatAmIDoing')}
                         </h2>
                     </div>
                 </div>

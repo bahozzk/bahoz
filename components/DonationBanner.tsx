@@ -1,9 +1,13 @@
+import { useLanguage } from '../lib/LanguageContext';
+
 interface Props {
   isDayMode: boolean;
   onOpenModal: () => void;
 }
 
 export default function DonationBanner({ isDayMode, onOpenModal }: Props) {
+  const { t } = useLanguage();
+
   return (
     <section className="relative w-full max-w-5xl mx-auto px-4 z-10 mb-6">
       <div className={`p-8 md:p-10 rounded-[2rem] flex flex-col md:flex-row items-center justify-between gap-6 transition-all duration-[2500ms] ${
@@ -13,10 +17,10 @@ export default function DonationBanner({ isDayMode, onOpenModal }: Props) {
       }`}>
         <div className="flex-1 text-center md:text-left">
           <h3 className={`text-2xl font-bold tracking-tight mb-2 transition-colors duration-[2500ms] ${isDayMode ? 'text-slate-900' : 'text-white'}`}>
-            Ce projet a été codé avec passion. 💻✨
+            {t('donationTitle')}
           </h3>
           <p className={`text-sm md:text-base font-medium transition-colors duration-[2500ms] ${isDayMode ? 'text-slate-700' : 'text-slate-300'}`}>
-            Soutenez le développeur derrière cette expérience créative.
+            {t('donationDesc')}
           </p>
         </div>
         
@@ -28,7 +32,7 @@ export default function DonationBanner({ isDayMode, onOpenModal }: Props) {
               : 'bg-gradient-to-r from-pink-600 to-fuchsia-600 text-white hover:shadow-pink-500/25'
           }`}
         >
-          Faire un don
+          {t('makeDonation')}
         </button>
       </div>
     </section>

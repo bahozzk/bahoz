@@ -1,8 +1,8 @@
-/* eslint-disable @next/next/no-img-element */
-import type { NextPage } from 'next';
-import type { PageProps } from '../types';
+import { useLanguage } from '../lib/LanguageContext';
 
 const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
+  const { t } = useLanguage();
+
   const qualifications = [
     {
       icon: (
@@ -39,7 +39,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
                 className='absolute inset-0 z-0 text-4xl sm:text-5xl md:text-4xl font-bold mb-4 text-white blur-md opacity-60'
                 aria-hidden="true"
             >
-                Qualifications
+                {t('qualificationsTitle')}
             </h2>
             {/* Main Gradient Text */}
             <h2 
@@ -51,7 +51,7 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
                     WebkitTextFillColor: 'transparent'
                 }}
             >
-                Qualifications
+                {t('qualificationsTitle')}
             </h2>
           </div>
         </div>

@@ -5,9 +5,10 @@ import { faGithub, faInstagram, faXTwitter, faDiscord, faYoutube, faSpotify } fr
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 import { useState, useEffect } from 'react';
-import { trackButtonClick, trackSocialClick } from '../lib/gtag';
+import { useLanguage } from '../lib/LanguageContext';
 
 const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
+    const { t } = useLanguage();
     const DISCORD_ID = '673849208154882078';
     
     // Discord Rich Presence bilgileri
@@ -242,8 +243,11 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                                         Bahoz
                                     </h1>
                                 </div>
-                                <p className='text-sm sm:text-base text-white/70 leading-relaxed font-medium mt-2'>
-                                    I am interested in programming but I don&apos;t know any languages 🙃
+                                <p className='text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/50 mb-2'>
+                                    {t('heroRole')}
+                                </p>
+                                <p className='text-xs sm:text-sm text-white/70 font-normal leading-relaxed max-w-lg'>
+                                    {t('heroBio')}
                                 </p>
                             </div>
 
@@ -356,7 +360,7 @@ const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
                         onClick={scrollToProjects}
                         className='liquid-button group inline-flex items-center gap-2 relative text-sm sm:text-base'
                     >
-                        <span>View My Projects</span>
+                        <span>{t('viewProjects')}</span>
                         <FontAwesomeIcon 
                             icon={faChevronDown} 
                             className='text-xs transition-transform duration-300 group-hover:translate-y-1'

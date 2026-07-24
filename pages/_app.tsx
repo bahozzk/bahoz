@@ -10,6 +10,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { pageview, GA_MEASUREMENT_ID } from "../lib/gtag";
 
+import { LanguageProvider } from "../lib/LanguageContext";
+
 config.autoAddCss = false;
 
 function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
@@ -28,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
   }, [router.events]);
 
   return (
-    <>
+    <LanguageProvider>
       <Head>
         <meta charSet="utf-8" />
         <meta name="publisher" content="Mustafa Can" />
@@ -130,7 +132,7 @@ function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
       </div>
 
       <Analytics />
-    </>
+    </LanguageProvider>
   );
 }
 
