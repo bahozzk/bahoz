@@ -4,6 +4,7 @@ import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faInstagram, faXTwitter, faDiscord, faYoutube, faSpotify } from '@fortawesome/free-brands-svg-icons';
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
+import { useState, useEffect } from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { trackButtonClick, trackSocialClick } from '../lib/gtag';
 
