@@ -77,8 +77,11 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                             className='group block w-full'
                             onClick={() => trackExternalLink(data.href)}
                         >
-                            <div className='glass-card p-5 sm:p-6 md:p-8 h-full transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1'>
-                                <div className='flex flex-row items-start gap-4 sm:gap-5 md:gap-6'>
+                            <div className='glass-card p-5 sm:p-6 md:p-8 h-full transition-all duration-500 group-hover:scale-[1.02] group-hover:-translate-y-1 relative overflow-hidden group-hover:border-white/40 group-hover:shadow-[0_0_35px_rgba(255,255,255,0.15)]'>
+                                {/* Premium Radial Glow Overlay on Hover */}
+                                <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.12),transparent_70%)]' />
+                                
+                                <div className='flex flex-row items-start gap-4 sm:gap-5 md:gap-6 relative z-10'>
                                     {/* Icon Container - Left Aligned */}
                                     <div 
                                         className='flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-xl sm:rounded-2xl overflow-hidden p-1.5 sm:p-2 transition-transform duration-500 group-hover:scale-105'
@@ -129,9 +132,6 @@ const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
                                         </p>
                                     </div>
                                 </div>
-
-                                {/* Bottom Hover Line */}
-                                <div className='w-0 group-hover:w-full h-0.5 bg-white/20 rounded-full transition-all duration-700 mt-4 sm:mt-5 md:mt-6'></div>
                             </div>
                         </a>
                     ))}
