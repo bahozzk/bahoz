@@ -1,0 +1,49 @@
+.write-animation {
+    border-right: 0.1em solid transparent;
+    overflow: hidden;
+    color: rgb(185, 185, 185);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.15em;
+}
+
+.writer {
+    border-right: 0.1em solid rgb(185, 185, 185);
+    animation: typing 3.5s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+.deleter {
+    border-right: 0.1em solid rgb(185, 185, 185);
+    animation: deleting 3.5s steps(40, end), blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes deleting {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
+
+@keyframes blink-caret {
+    from,
+    to {
+        border-color: transparent;
+    }
+
+    50% {
+        border-color: rgb(185, 185, 185);
+    }
+}

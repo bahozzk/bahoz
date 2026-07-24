@@ -1,0 +1,30 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      }
+    ],
+  },
+  async redirects() {
+    return [
+      { source: '/discord', destination: 'https://discord.com/users/673849208154882078', permanent: true },
+      { source: '/spotify', destination: 'https://open.spotify.com/user/31qumprympw55vvhea4gwud5htwa?si=_Cy8oIHpSleUar29fGUCEw', permanent: true },
+      { source: '/github', destination: 'https://github.com/bahozzk', permanent: true },
+      { source: '/instagram', destination: 'https://instagram.com/bahozzx', permanent: true },
+      { source: '/x', destination: 'https://x.com/bahozzk', permanent: true },
+      { source: '/ivymc', destination: 'https://forms.gle/jMcozyZbnHTUodtw5', permanent: true },
+      { source: '/youtube', destination: 'https://www.youtube.com/@BahozK', permanent: true }
+    ]
+  }
+}
+
+module.exports = nextConfig

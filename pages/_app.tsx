@@ -1,0 +1,137 @@
+import "../styles/globals.css";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import type { AppProps } from "next/app";
+import { Analytics } from "@vercel/analytics/react";
+import type { PageProps } from "../types";
+import Head from "next/head";
+import Script from "next/script";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
+import { pageview, GA_MEASUREMENT_ID } from "../lib/gtag";
+
+config.autoAddCss = false;
+
+function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
+  const router = useRouter();
+
+  // Track page views on route change
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      pageview(url);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
+  return (
+    <>
+      <Head>
+        <meta charSet="utf-8" />
+        <meta name="publisher" content="Mustafa Can" />
+        <meta name="robots" content="index, follow" />
+        <meta name="application-name" content="Mustafa Can" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-title" content="Mustafa Can" />
+        <meta name="author" content="Mustafa Can" />
+        <meta name="theme-color" content="black" />
+        <link
+          rel="shortcut icon"
+          href="https://mc-heads.net/head/BahozzK/400"
+        />
+        <link
+          rel="apple-touch-icon"
+          href="https://mc-heads.net/head/BahozzK/400"
+          sizes="512x512"
+        />
+        <title>BahozzK</title>
+      </Head>
+
+      {/* Google Tag Manager - Head */}
+      <Script
+        id="google-tag-manager"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MP5FWJ5F');
+          `,
+        }}
+      />
+      {/* End Google Tag Manager */}
+
+      {/* Google Analytics - Enhanced (Backup/Fallback) */}
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
+      <Script
+        id="google-analytics"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}', {
+              page_path: window.location.pathname,
+              send_page_view: true,
+              anonymize_ip: true,
+            });
+          `,
+        }}
+      />
+      {/* End Google Analytics */}
+
+      {/* Buy Me a Coffee Widget - Official Code */}
+      <Script
+        data-name="BMC-Widget"
+        data-cfasync="false"
+        src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+        data-id="bahoz"
+        data-description="Support me on Buy me a coffee!"
+        data-message=""
+        data-color="#BD5FFF"
+        data-position="Right"
+        data-x_margin="18"
+        data-y_margin="18"
+        strategy="lazyOnload"
+      />
+      {/* End Buy Me a Coffee Widget */}
+
+      {/* Google Tag Manager (noscript) - Body */}
+      <noscript>
+        <iframe 
+          src="https://www.googletagmanager.com/ns.html?id=GTM-MP5FWJ5F"
+          height="0" 
+          width="0" 
+          style={{display: 'none', visibility: 'hidden'}}
+        />
+      </noscript>
+      {/* End Google Tag Manager (noscript) */}
+
+      {/* Arka Plan + İçerik */}
+      <div
+        style={{
+          minHeight: "100vh",
+          backgroundImage: "url('/assets/images/arkaplan.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <Component {...pageProps} />
+      </div>
+
+      <Analytics />
+    </>
+  );
+}
+
+export default MyApp;
