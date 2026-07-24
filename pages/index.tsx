@@ -11,7 +11,7 @@ import { useState } from 'react';
 import DonationBanner from '../components/DonationBanner';
 import DonationModal from '../components/DonationModal';
 
-const Home: NextPage = (pageProps: PageProps): JSX.Element => {
+const Home: NextPage = (pageProps: PageProps) => {
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
 
   return (

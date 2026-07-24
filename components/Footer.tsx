@@ -3,7 +3,7 @@ import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 import { useLanguage } from '../lib/LanguageContext';
 
-const Footer: NextPage = (pageProps: PageProps): JSX.Element => {
+const Footer: NextPage = (pageProps: PageProps) => {
     const { t } = useLanguage();
 
     return (

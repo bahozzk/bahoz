@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '../lib/LanguageContext';
 import { trackButtonClick, trackSocialClick } from '../lib/gtag';
 
-const Hero: NextPage = (pageProps: PageProps): JSX.Element => {
+const Hero: NextPage = (pageProps: PageProps) => {
     const { t } = useLanguage();
     const DISCORD_ID = '673849208154882078';
     

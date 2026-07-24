@@ -1,6 +1,8 @@
+import type { NextPage } from 'next';
+import type { PageProps } from '../types';
 import { useLanguage } from '../lib/LanguageContext';
 
-const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
+const Qualifications: NextPage = (pageProps: PageProps) => {
   const { t } = useLanguage();
 
   const qualifications = [

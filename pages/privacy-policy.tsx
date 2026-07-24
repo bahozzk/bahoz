@@ -12,7 +12,7 @@ const sections = [
   { id: "contact", label: "Contact Us" },
 ];
 
-export default function PrivacyPolicyPage(): JSX.Element {
+export default function PrivacyPolicyPage() {
   return (
     <>
       <Head>

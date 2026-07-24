@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function DeleteAccountPage(): JSX.Element {
+export default function DeleteAccountPage() {
   return (
     <>
       <Head>

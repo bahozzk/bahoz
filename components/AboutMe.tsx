@@ -3,7 +3,7 @@ import { faGithub, faInstagram, faTwitter, faDiscord, faYoutube, faSpotify } fro
 import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 
-const AboutMe: NextPage = (pageProps: PageProps): JSX.Element => {
+const AboutMe: NextPage = (pageProps: PageProps) => {
     const links = [
         {
             icon: faGithub,

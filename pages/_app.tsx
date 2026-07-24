@@ -14,7 +14,7 @@ import { LanguageProvider } from "../lib/LanguageContext";
 
 config.autoAddCss = false;
 
-function MyApp({ Component, pageProps }: AppProps<PageProps>): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps<PageProps>) {
   const router = useRouter();
 
   // Track page views on route change

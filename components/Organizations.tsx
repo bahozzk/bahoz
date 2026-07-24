@@ -7,7 +7,7 @@ import { trackExternalLink } from '../lib/gtag';
 
 import { useLanguage } from '../lib/LanguageContext';
 
-const Organizations: NextPage = (pageProps: PageProps): JSX.Element => {
+const Organizations: NextPage = (pageProps: PageProps) => {
     const { t } = useLanguage();
 
     // Organizations array
