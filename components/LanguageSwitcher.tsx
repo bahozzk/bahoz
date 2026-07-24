@@ -1,4 +1,4 @@
-import { useLanguage, Language } from './LanguageContext';
+import { useLanguage, Language } from '../lib/LanguageContext';
 
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
