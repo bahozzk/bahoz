@@ -14,7 +14,7 @@ const Langs: NextPage = (pageProps: PageProps) => {
           className="w-32 h-20 rounded-lg object-cover"
         />
       ),
-      description: 'B1+ English',
+      description: t('englishLang'),
       gradient: 'from-red-600 via-blue-500 to-red-600',
     },
     {
@@ -25,7 +25,7 @@ const Langs: NextPage = (pageProps: PageProps) => {
           className="w-32 h-20 rounded-lg object-cover"
         />
       ),
-      description: 'A2 French',
+      description: t('frenchLang'),
       gradient: 'from-blue-700 via-white to-red-500',
     },
   ];

@@ -73,11 +73,21 @@ export const translations = {
     fr: "Choisissez votre climat et construisez votre monde sur le serveur IvyMC ! Combattez des créatures dans un monde sauvage !",
   },
 
-  // Qualifications
+  // Qualifications & Languages
   qualificationsTitle: {
-    en: "Qualifications",
-    tr: "Yetenekler & Diller",
-    fr: "Qualifications",
+    en: "Languages",
+    tr: "Bildiğim Diller",
+    fr: "Langues",
+  },
+  englishLang: {
+    en: "B1+ English",
+    tr: "B1+ İngilizce",
+    fr: "B1+ Anglais",
+  },
+  frenchLang: {
+    en: "A2 French",
+    tr: "A2 Fransızca",
+    fr: "A2 Français",
   },
 
   // Donation
