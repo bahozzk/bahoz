@@ -16,9 +16,9 @@ export const translations = {
     fr: "Bonjour, je suis",
   },
   heroRole: {
-    en: "Software Developer & Digital Creator",
-    tr: "Yazılım Geliştirici & Dijital İçerik Üreticisi",
-    fr: "Développeur Logiciel & Créateur Numérique",
+    en: "Vibe Coder & Digital Enthusiast",
+    tr: "Vibe Coding ile Uğraşıyor",
+    fr: "Passionné de Vibe Coding & Numérique",
   },
   heroBio: {
     en: "Crafting modern web experiences, applications, and creative digital solutions with modern technology stack.",
