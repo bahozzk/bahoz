@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import type { PageProps } from '../types';
 import { useLanguage } from '../lib/LanguageContext';
 
-const Qualifications: NextPage = (pageProps: PageProps) => {
+const Langs: NextPage = (pageProps: PageProps) => {
   const { t } = useLanguage();
 
   const qualifications = [
@@ -104,4 +104,4 @@ const Qualifications: NextPage = (pageProps: PageProps) => {
   );
 };
 
-export default Qualifications;
+export default Langs;

@@ -3,7 +3,7 @@ import type { PageProps } from '../types';
 
 import Hero from '../components/Hero';
 import Organizations from '../components/Organizations';
-import Techs from '../components/Techs';
+import Langs from '../components/Langs';
 
 import Footer from '../components/Footer';
 
@@ -28,7 +28,7 @@ const Home: NextPage = (pageProps: PageProps) => {
         <div id="projects">
           <Organizations />
         </div>
-        <Techs />
+        <Langs />
         
         <div className="py-4">
           <DonationBanner 
