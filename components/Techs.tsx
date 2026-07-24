@@ -66,16 +66,16 @@ const Qualifications: NextPage = (pageProps: PageProps): JSX.Element => {
             >
               <div className="relative h-full">
                 {/* Subtle outer glow */}
-                <div className='absolute -inset-2 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700 pointer-events-none'></div>
+                <div className='absolute -inset-2 bg-white/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-300 pointer-events-none'></div>
                 
                 {/* Card Content - Compact Glass */}
-                <div className="relative glass-card p-6 sm:p-8 flex flex-col items-center justify-center space-y-4 sm:space-y-5 h-full group-hover:scale-[1.03] transition-all duration-500 overflow-hidden group-hover:border-white/40 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]">
+                <div className="relative glass-card p-6 sm:p-8 flex flex-col items-center justify-center space-y-4 sm:space-y-5 h-full group-hover:scale-[1.03] transition-all duration-300 ease-out overflow-hidden group-hover:border-white/40 group-hover:shadow-[0_0_30px_rgba(255,255,255,0.15)]">
                   {/* Premium Radial Glow Overlay */}
-                  <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]' />
+                  <div className='absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.12),transparent_70%)]' />
                   
                   {/* Flag Container - Smaller */}
                   <div 
-                    className="relative rounded-2xl overflow-hidden p-2 shadow-2xl transition-transform duration-500 group-hover:scale-105"
+                    className="relative rounded-2xl overflow-hidden p-2 shadow-2xl transition-transform duration-300 ease-out group-hover:scale-105"
                     style={{
                       background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.03) 100%)',
                       backdropFilter: 'blur(40px) saturate(180%)',
