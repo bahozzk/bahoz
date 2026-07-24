@@ -174,7 +174,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
 
   return (
         <div className='w-full min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20'>
-            <div className='w-full max-w-2xl mx-auto fade-in-up'>
+            <div className={`w-full max-w-2xl mx-auto transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100 fade-in-up'}`}>
                 {/* Main Profile Card - Compact & Chic */}
                 <div 
                     className='relative p-6 sm:p-8 mb-8 rounded-3xl transition-all duration-500 hover:shadow-2xl'

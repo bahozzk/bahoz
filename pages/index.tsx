@@ -4,7 +4,7 @@ import type { PageProps } from '../types';
 import Hero from '../components/Hero';
 import Organizations from '../components/Organizations';
 import Techs from '../components/Techs';
-import AboutMe from '../components/AboutMe';
+
 import Footer from '../components/Footer';
 
 import { useState } from 'react';
