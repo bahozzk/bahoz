@@ -20,14 +20,14 @@ const Organizations: NextPage = (pageProps: PageProps) => {
     }> = [
         {
             title: "WGTF 2026 Project",
-            href: "https://wgtf.bahoz.dev",
+            href: "https://wgtf.bahozk.me",
             position: "Developer / Creator",
             description: t('wgtfDesc'),
             iconPath: "https://github.com/bahozzk.png"
         },
         {
             title: "IvyMC",
-            href: "https://ivymc.bahoz.dev",
+            href: "https://ivymc.bahozk.me",
             position: "Creator",
             description: t('ivymcDesc'),
             iconPath: "https://github.com/ivy-mc.png"
