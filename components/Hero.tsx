@@ -161,23 +161,23 @@ const Hero: NextPage = (pageProps: PageProps) => {
         const spotifyActivity = discordStatus.activities.find((a: any) => a.name === 'Spotify' || a.type === 2);
         if (spotifyActivity) return spotifyActivity;
 
-    // Yoksa ilk aktiviteyi döndür
-    return discordStatus.activities[0];
-  };
+        // Yoksa ilk aktiviteyi döndür
+        return discordStatus.activities[0];
+    };
 
-  // Get dynamic Discord avatar
-  let avatarUrl = "/assets/images/avatar.png";
-  if (discordStatus?.discord_user?.avatar) {
-      const ext = discordStatus.discord_user.avatar.startsWith('a_') ? 'gif' : 'png';
-      avatarUrl = `https://cdn.discordapp.com/avatars/${discordStatus.discord_user.id}/${discordStatus.discord_user.avatar}.${ext}?size=512`;
-  }
+    // Get dynamic Discord avatar
+    let avatarUrl = "/assets/images/avatar.png";
+    if (discordStatus?.discord_user?.avatar) {
+        const ext = discordStatus.discord_user.avatar.startsWith('a_') ? 'gif' : 'png';
+        avatarUrl = `https://cdn.discordapp.com/avatars/${discordStatus.discord_user.id}/${discordStatus.discord_user.avatar}.${ext}?size=512`;
+    }
 
-  return (
-        <div className='w-full min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 py-12 sm:py-20'>
+    return (
+        <div className='w-full min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 py-10 sm:py-20'>
             <div className={`w-full max-w-2xl mx-auto transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100 fade-in-up'}`}>
                 {/* Main Profile Card - Compact & Chic */}
                 <div 
-                    className='relative p-6 sm:p-8 mb-8 rounded-3xl transition-all duration-500 hover:shadow-2xl'
+                    className='relative p-5 sm:p-8 mb-6 sm:mb-8 rounded-2xl sm:rounded-3xl transition-all duration-500 hover:shadow-2xl w-full'
                     style={{
                         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
                         backdropFilter: 'blur(40px) saturate(200%)',
@@ -185,7 +185,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
                     }}
                 >
-                    <div className='flex flex-col sm:flex-row items-center sm:items-start gap-6'>
+                    <div className='flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6'>
                         
                         {/* Avatar Section */}
                         <div className='flex-shrink-0 relative group'>
@@ -199,7 +199,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                                 }}
                             >
                                 <img 
-                                    className='block h-24 w-24 sm:h-28 sm:w-28 rounded-full object-cover' 
+                                    className='block h-20 w-20 xs:h-24 xs:w-24 sm:h-28 sm:w-28 rounded-full object-cover' 
                                     src={avatarUrl} 
                                     alt="Bahoz Avatar"
                                 />
@@ -208,7 +208,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                             {/* Status Indicator Pill */}
                             {discordStatus && (
                                 <div 
-                                    className='absolute -bottom-2 right-2 sm:right-4 flex items-center justify-center rounded-full border-[3px] z-10 transition-all'
+                                    className='absolute -bottom-1 right-1 sm:-bottom-1 sm:right-2 flex items-center justify-center rounded-full border-[3px] z-10 transition-all'
                                     style={{
                                         backgroundColor: getStatusColor(discordStatus.discord_status),
                                         borderColor: '#1a1a1a',
@@ -221,19 +221,19 @@ const Hero: NextPage = (pageProps: PageProps) => {
                         </div>
 
                         {/* Profile Info & Activity */}
-                        <div className='flex-1 flex flex-col justify-center text-center sm:text-left space-y-4'>
+                        <div className='flex-1 flex flex-col justify-center space-y-3 sm:space-y-4 min-w-0 w-full'>
                             <div>
                                 <div className="relative inline-block">
-                                    {/* Glow Layer (Solid white text blurred, no gradient/clip bugs) */}
+                                    {/* Glow Layer */}
                                     <h1 
-                                        className='absolute inset-0 z-0 text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-white blur-md opacity-60'
+                                        className='absolute inset-0 z-0 text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 sm:mb-2 text-white blur-md opacity-60'
                                         aria-hidden="true"
                                     >
                                         Bahoz
                                     </h1>
                                     {/* Main Gradient Text */}
                                     <h1 
-                                        className='relative z-10 text-3xl sm:text-4xl font-extrabold tracking-tight mb-2 text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 via-white to-zinc-400'
+                                        className='relative z-10 text-3xl sm:text-4xl font-extrabold tracking-tight mb-1 sm:mb-2 text-transparent bg-clip-text bg-gradient-to-r from-zinc-400 via-white to-zinc-400'
                                         style={{
                                             backgroundSize: '200% auto',
                                             animation: 'shine 4s linear infinite',
@@ -244,16 +244,16 @@ const Hero: NextPage = (pageProps: PageProps) => {
                                         Bahoz
                                     </h1>
                                 </div>
-                                <p className='text-xs sm:text-sm font-semibold tracking-wider uppercase text-white/50 mb-2'>
+                                <p className='text-[11px] sm:text-sm font-semibold tracking-wider uppercase text-white/50 mb-1.5 sm:mb-2'>
                                     {t('heroRole')}
                                 </p>
-                                <p className='text-xs sm:text-sm text-white/70 font-normal leading-relaxed max-w-lg'>
+                                <p className='text-xs sm:text-sm text-white/70 font-normal leading-relaxed max-w-md sm:max-w-lg mx-auto sm:mx-0'>
                                     {t('heroBio')}
                                 </p>
                             </div>
 
                             {/* Compact Socials inline */}
-                            <div className='flex flex-wrap gap-2.5 justify-center sm:justify-start pt-1'>
+                            <div className='flex flex-wrap gap-2 sm:gap-2.5 justify-center sm:justify-start pt-1'>
                                 {socialLinks.map((link, index) => (
                                     <a
                                         key={`social-${index}`}
@@ -265,7 +265,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                                         onClick={() => trackSocialClick(link.label)}
                                     >
                                         <div 
-                                            className='w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 hover:-translate-y-1'
+                                            className='w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-95 touch-manipulation'
                                             style={{
                                                 background: 'rgba(255, 255, 255, 0.05)',
                                                 border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -287,7 +287,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                                         >
                                             <FontAwesomeIcon 
                                                 icon={link.icon}
-                                                className='text-white/70 transition-all duration-300 text-sm'
+                                                className='text-white/70 transition-all duration-300 text-xs sm:text-sm'
                                             />
                                         </div>
                                     </a>
@@ -296,12 +296,12 @@ const Hero: NextPage = (pageProps: PageProps) => {
 
                             {/* Ultra Compact Activity Pill */}
                             {!isLoading && discordStatus && getPrimaryActivity() && (
-                                <div className='pt-2'>
+                                <div className='pt-1 sm:pt-2 flex justify-center sm:justify-start'>
                                     <div 
-                                        className='inline-flex items-center gap-3 py-2 px-3 sm:px-4 rounded-full transition-all duration-300'
+                                        className='inline-flex items-center gap-2.5 sm:gap-3 py-1.5 px-3 sm:py-2 sm:px-4 rounded-full transition-all duration-300 max-w-full'
                                         style={{
-                                            background: 'rgba(0, 0, 0, 0.2)',
-                                            border: '1px solid rgba(255, 255, 255, 0.1)',
+                                            background: 'rgba(0, 0, 0, 0.25)',
+                                            border: '1px solid rgba(255, 255, 255, 0.12)',
                                         }}
                                     >
                                         {/* Activity Icon - Miniature */}
@@ -340,11 +340,11 @@ const Hero: NextPage = (pageProps: PageProps) => {
                                         </div>
 
                                         {/* Activity Name */}
-                                        <div className='flex flex-col text-left'>
+                                        <div className='flex flex-col text-left min-w-0'>
                                             <span className='text-[10px] text-white/50 uppercase tracking-wide font-bold leading-none mb-0.5'>
                                                 {getActivityTypeText(getPrimaryActivity())}
                                             </span>
-                                            <span className='text-xs text-white/90 font-medium leading-none truncate max-w-[150px] sm:max-w-[200px]'>
+                                            <span className='text-xs text-white/90 font-medium leading-none truncate max-w-[170px] xs:max-w-[210px] sm:max-w-[240px]'>
                                                 {getPrimaryActivity()?.name} - {getPrimaryActivity()?.details || 'Playing'}
                                             </span>
                                         </div>
