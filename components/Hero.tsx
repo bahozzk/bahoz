@@ -173,11 +173,11 @@ const Hero: NextPage = (pageProps: PageProps) => {
     }
 
     return (
-        <div className='w-full min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 py-10 sm:py-20'>
+        <div className='w-full max-w-full overflow-hidden min-h-[100dvh] flex flex-col justify-center items-center px-4 sm:px-6 py-10 sm:py-20'>
             <div className={`w-full max-w-2xl mx-auto transition-opacity duration-500 ${isLoading ? 'opacity-0' : 'opacity-100 fade-in-up'}`}>
                 {/* Main Profile Card - Compact & Chic */}
                 <div 
-                    className='relative p-5 sm:p-8 mb-6 sm:mb-8 rounded-2xl sm:rounded-3xl transition-all duration-500 hover:shadow-2xl w-full'
+                    className='relative p-4 xs:p-5 sm:p-8 mb-6 sm:mb-8 rounded-2xl sm:rounded-3xl transition-all duration-500 hover:shadow-2xl w-full max-w-full overflow-hidden'
                     style={{
                         background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.03) 100%)',
                         backdropFilter: 'blur(40px) saturate(200%)',
@@ -185,7 +185,7 @@ const Hero: NextPage = (pageProps: PageProps) => {
                         boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.3)'
                     }}
                 >
-                    <div className='flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-5 sm:gap-6'>
+                    <div className='flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6 w-full min-w-0'>
                         
                         {/* Avatar Section */}
                         <div className='flex-shrink-0 relative group'>
