@@ -33,22 +33,22 @@ const Home: NextPage = (pageProps: PageProps) => {
   };
 
   return (
-    <div className='relative min-h-screen'>
-      {/* Background Image with Subtle Overlay */}
-      <div className="fixed top-0 left-0 w-full h-full z-0">
-        <div className="absolute w-full h-full bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center bg-fixed"></div>
-        <div className="absolute w-full h-full bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
+    <div className='relative min-h-screen w-full max-w-full overflow-x-hidden'>
+      {/* Background Image with Subtle Overlay - GPU Accelerated Fixed Layer */}
+      <div className="fixed inset-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 w-full h-full bg-[url('https://cdn.pixabay.com/photo/2020/12/18/16/56/laptop-5842509_960_720.jpg')] bg-no-repeat bg-cover bg-center"></div>
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-b from-black/50 via-black/40 to-black/60"></div>
       </div>
 
       {/* Content */}
-      <div className='relative z-10'>
+      <div className='relative z-10 w-full max-w-full overflow-x-hidden flex flex-col items-center'>
         <Hero />
-        <div id="projects">
+        <div id="projects" className="w-full max-w-full">
           <Organizations />
         </div>
         <Langs />
         
-        <div className="py-4">
+        <div className="py-4 w-full max-w-full">
           <DonationBanner 
             isDayMode={false} 
             onOpenModal={() => {
