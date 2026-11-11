@@ -7,12 +7,30 @@ import Langs from '../components/Langs';
 
 import Footer from '../components/Footer';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import DonationBanner from '../components/DonationBanner';
 import DonationModal from '../components/DonationModal';
 
 const Home: NextPage = (pageProps: PageProps) => {
+  const router = useRouter();
   const [isDonationModalOpen, setIsDonationModalOpen] = useState(false);
+  const [forceSuccess, setForceSuccess] = useState(false);
+
+  useEffect(() => {
+    if (router.query.redirect_status === 'succeeded') {
+      setIsDonationModalOpen(true);
+      setForceSuccess(true);
+    }
+  }, [router.query]);
+
+  const handleCloseModal = () => {
+    setIsDonationModalOpen(false);
+    if (forceSuccess) {
+      setForceSuccess(false);
+      router.replace('/', undefined, { shallow: true });
+    }
+  };
 
   return (
     <div className='relative min-h-screen'>
@@ -33,7 +51,10 @@ const Home: NextPage = (pageProps: PageProps) => {
         <div className="py-4">
           <DonationBanner 
             isDayMode={false} 
-            onOpenModal={() => setIsDonationModalOpen(true)} 
+            onOpenModal={() => {
+              setForceSuccess(false);
+              setIsDonationModalOpen(true);
+            }} 
           />
         </div>
 
@@ -42,8 +63,9 @@ const Home: NextPage = (pageProps: PageProps) => {
 
       <DonationModal 
         isOpen={isDonationModalOpen}
-        onClose={() => setIsDonationModalOpen(false)}
+        onClose={handleCloseModal}
         isDayMode={false}
+        forceSuccess={forceSuccess}
       />
     </div>
   );
