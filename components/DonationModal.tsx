@@ -92,10 +92,10 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       
       {/* Modal Content */}
-      <div className={`relative w-full max-w-md mx-4 p-8 rounded-3xl shadow-2xl transform transition-all duration-300 max-h-[90vh] overflow-y-auto overflow-x-hidden ${isOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'} ${isDayMode ? 'bg-white border border-white/40' : 'bg-[#11131c] border border-white/10'}`}>
+      <div className={`relative w-full max-w-md w-[calc(100%-24px)] mx-3 sm:mx-auto p-5 sm:p-7 md:p-8 rounded-2xl sm:rounded-3xl shadow-2xl transform transition-all duration-300 max-h-[90vh] overflow-y-auto overflow-x-hidden ${isOpen ? 'scale-100 translate-y-0' : 'scale-95 translate-y-4'} ${isDayMode ? 'bg-white border border-white/40' : 'bg-[#11131c] border border-white/10'}`}>
         
         {/* Close Button */}
-        <button onClick={onClose} className={`absolute top-5 right-5 w-8 h-8 flex items-center justify-center rounded-full transition-colors z-10 ${isDayMode ? 'hover:bg-slate-100 text-slate-400' : 'hover:bg-white/10 text-slate-500'}`}>
+        <button onClick={onClose} className={`absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 flex items-center justify-center rounded-full transition-colors z-10 ${isDayMode ? 'hover:bg-slate-100 text-slate-400' : 'hover:bg-white/10 text-slate-500'}`}>
           ✕
         </button>
 
