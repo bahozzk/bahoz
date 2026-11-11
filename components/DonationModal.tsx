@@ -3,9 +3,17 @@ import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 import CheckoutForm from './CheckoutForm';
 
-// Initialize Stripe outside component to avoid recreation
-const stripeKey = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY;
-const stripePromise = stripeKey ? loadStripe(stripeKey) : null;
+// Resilient Stripe loader with environment variable and fallback
+let stripePromise: ReturnType<typeof loadStripe> | null = null;
+const getStripe = () => {
+  if (!stripePromise) {
+    const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY || 'pk_live_51TJsYBLSoYD6m2wjjtW4JR9YbTgrkp2SXIk1sjEwlPNmtyDMsPggDMewNBLSn8WE0MAGBsgU2L5yAkURhGNXxnmk00z5nmFRKy';
+    if (key) {
+      stripePromise = loadStripe(key);
+    }
+  }
+  return stripePromise;
+};
 
 interface Props {
   isOpen: boolean;
@@ -21,6 +29,9 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
   const [mounted, setMounted] = useState(false);
   const [clientSecret, setClientSecret] = useState<string | null>(null);
   const [isFetchingIntent, setIsFetchingIntent] = useState(false);
+  const [fetchError, setFetchError] = useState<string | null>(null);
+
+  const stripe = getStripe();
 
   // Trigger animation after mount
   useEffect(() => {
@@ -33,12 +44,14 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
     } else {
       setTimeout(() => setMounted(false), 300); // match transition duration
       setClientSecret(null);
+      setFetchError(null);
       setIsCustomAmount(false);
     }
   }, [isOpen, forceSuccess, amount]); // Re-fetch intent if amount changes
 
   const fetchPaymentIntent = async (value: number) => {
     setIsFetchingIntent(true);
+    setFetchError(null);
     setClientSecret(null); // Clear previous intent
     try {
       const res = await fetch('/api/create-payment-intent', {
@@ -47,13 +60,15 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
         body: JSON.stringify({ amount: value }),
       });
       const data = await res.json();
-      if (res.ok) {
+      if (res.ok && data.clientSecret) {
         setClientSecret(data.clientSecret);
       } else {
         console.error('Failed to init intent', data);
+        setFetchError(data.message || 'Impossible d\'initialiser le paiement.');
       }
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
+      setFetchError(err.message || 'Erreur réseau.');
     } finally {
       setIsFetchingIntent(false);
     }
@@ -90,7 +105,7 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
             <h2 className={`text-2xl font-bold mb-2 ${isDayMode ? 'text-slate-900' : 'text-white'}`}>Paiement Réussi !</h2>
             <p className={`mb-6 text-sm font-medium leading-relaxed ${isDayMode ? 'text-slate-600' : 'text-slate-400'}`}>
               Merci énormément pour votre soutien à mon travail.<br/>
-              <span className="opacity-80">Une copie de votre facture a été envoyée à votre adresse e-mail.</span>
+              <span className="opacity-80">Une confirmation a été envoyée à votre adresse e-mail.</span>
             </p>
             <button 
               onClick={onClose}
@@ -192,17 +207,18 @@ export default function DonationModal({ isOpen, onClose, isDayMode, forceSuccess
                    <svg className="animate-spin h-8 w-8 text-sky-500" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
                 </div>
               )}
-              
-              {clientSecret && stripePromise && (
-                <div className={`transition-opacity duration-300 ${isFetchingIntent ? 'opacity-30' : 'opacity-100'}`}>
-                  <Elements stripe={stripePromise} options={{ clientSecret, appearance }}>
-                    <CheckoutForm amount={amount} isDayMode={isDayMode} />
-                  </Elements>
+
+              {fetchError && (
+                <div className="text-rose-500 text-sm text-center py-4 bg-rose-500/10 rounded-lg mt-4 border border-rose-500/20">
+                  ⚠️ {fetchError}
                 </div>
               )}
-              {clientSecret && !stripePromise && (
-                <div className="text-red-500 text-sm text-center py-4 bg-red-500/10 rounded-lg mt-4 border border-red-500/20">
-                  Stripe is not configured. Missing NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY in .env
+              
+              {clientSecret && stripe && (
+                <div className={`transition-opacity duration-300 ${isFetchingIntent ? 'opacity-30' : 'opacity-100'}`}>
+                  <Elements stripe={stripe} options={{ clientSecret, appearance }}>
+                    <CheckoutForm amount={amount} isDayMode={isDayMode} />
+                  </Elements>
                 </div>
               )}
             </div>
