@@ -1,35 +1,33 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 
-// Safe instantiation.
-const stripeToken = process.env.STRIPE_SECRET_KEY;
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST');
     return res.status(405).json({ message: 'Method Not Allowed' });
   }
 
+  const stripeToken = process.env.STRIPE_SECRET_KEY;
+
   if (!stripeToken || stripeToken.includes('BURAYA_GIZLI')) {
     return res.status(500).json({ message: 'STRIPE_SECRET_KEY eksik veya yapilandirilmamis.' });
   }
 
   try {
-    const stripe = new Stripe(stripeToken, {
-      apiVersion: '2026-03-25.dahlia' as any, // Updated for 2026 compatibility
-    });
+    const stripe = new Stripe(stripeToken);
 
     const { amount } = req.body;
+    const parsedAmount = typeof amount === 'number' ? amount : parseInt(amount, 10);
 
-    if (!amount || amount < 1) {
+    if (!parsedAmount || isNaN(parsedAmount) || parsedAmount < 1) {
       return res.status(400).json({ message: 'Montant invalide.' });
     }
 
     // Stripe processes payment in the lowest denominator (5 EUR -> 500 cents)
     const paymentIntent = await stripe.paymentIntents.create({
-      amount: amount * 100,
+      amount: Math.round(parsedAmount * 100),
       currency: 'eur',
-      description: 'Soutien au créateur WGTF numérique',
+      description: 'Soutien au créateur Bahoz',
       automatic_payment_methods: {
         enabled: true,
       },
