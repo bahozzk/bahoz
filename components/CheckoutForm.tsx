@@ -17,17 +17,22 @@ export default function CheckoutForm({ amount, isDayMode }: { amount: number; is
     }
 
     setIsProcessing(true);
+    setErrorMessage('');
+
+    const confirmParams: { return_url: string; receipt_email?: string } = {
+      return_url: window.location.origin,
+    };
+    if (email && email.trim()) {
+      confirmParams.receipt_email = email.trim();
+    }
 
     const { error } = await stripe.confirmPayment({
       elements,
-      confirmParams: {
-        return_url: window.location.origin,
-        receipt_email: email, // Strips handles the automatic invoice receipt dispatch
-      },
+      confirmParams,
     });
 
     if (error) {
-      // If payment fails instantly (Declined, Insufficient Funds)
+      // If payment fails instantly (Declined, Insufficient Funds, etc.)
       setErrorMessage(error.message || 'Le paiement a été refusé. Veuillez vérifier vos informations.');
     }
 
@@ -51,6 +56,7 @@ export default function CheckoutForm({ amount, isDayMode }: { amount: number; is
 
       {isReady && (
         <button
+          type="submit"
           disabled={isProcessing || !stripe || !elements}
           className={`w-full mt-4 py-4 font-bold rounded-xl shadow-lg transition-all hover:scale-[1.02] active:scale-95 flex justify-center items-center gap-2 ${
             isDayMode 
@@ -67,7 +73,7 @@ export default function CheckoutForm({ amount, isDayMode }: { amount: number; is
               Traitement sécurisé...
             </>
           ) : (
-            `Payer sécurisé (${amount}€)`
+            `Payer en toute sécurité (${amount}€)`
           )}
         </button>
       )}
